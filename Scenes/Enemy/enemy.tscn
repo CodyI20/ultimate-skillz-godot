@@ -3,6 +3,8 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_hpdof"]
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hpdof")

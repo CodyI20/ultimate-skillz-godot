@@ -1,10 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://41fehitxf0b1"]
+[gd_scene load_steps=20 format=3 uid="uid://41fehitxf0b1"]
 
 [ext_resource type="Script" path="res://GDScripts/2d_player.gd" id="1_ecqth"]
 [ext_resource type="Texture2D" uid="uid://csww35ogk55kl" path="res://Art/2D/Atlantis/Sheets/mer_human_1.png" id="1_qfoyw"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerMovementStates/MovementFSM.gd" id="3_h2ban"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerMovementStates/idle_state.gd" id="3_vnqth"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerMovementStates/walking_state.gd" id="4_mibcl"]
+[ext_resource type="Script" path="res://GDScripts/weapon_pivot.gd" id="6_2eeyq"]
+[ext_resource type="Script" path="res://GDScripts/weapon.gd" id="6_v4mj3"]
+[ext_resource type="PackedScene" uid="uid://d5n4sq0ejhjy" path="res://Scenes/Projectile/projectile.tscn" id="7_cmlw8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2h1w0"]
 atlas = ExtResource("1_qfoyw")
@@ -108,6 +111,8 @@ resource_local_to_scene = true
 size = Vector2(17, 30)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 96
 script = ExtResource("1_ecqth")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -129,3 +134,11 @@ script = ExtResource("3_vnqth")
 
 [node name="Walking" type="Node" parent="MovementFSM"]
 script = ExtResource("4_mibcl")
+
+[node name="WeaponPivot" type="Node2D" parent="."]
+script = ExtResource("6_2eeyq")
+
+[node name="Weapon" type="Node2D" parent="WeaponPivot"]
+position = Vector2(-40, 0)
+script = ExtResource("6_v4mj3")
+projectile = ExtResource("7_cmlw8")
