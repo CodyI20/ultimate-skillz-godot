@@ -2,7 +2,17 @@ extends PlayerMovementState
 class_name PlayerIdle
 
 func Enter():
-	animator.play("Idle_Down")
+	match movement_fsm.last_orientation:
+		movement_fsm.PLAYER_ORIENTATION.UP:
+			animator.play("Idle_Up")
+		movement_fsm.PLAYER_ORIENTATION.DOWN:
+			animator.play("Idle_Down")
+		movement_fsm.PLAYER_ORIENTATION.LEFT:
+			animator.play("Idle_Sideways")
+			animator.flip_h = false
+		movement_fsm.PLAYER_ORIENTATION.RIGHT:
+			animator.play("Idle_Sideways")
+			animator.flip_h = true
 	print_debug("Entering idle state...")
 func Exit():
 	print_debug("Exiting idle state...")

@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://41fehitxf0b1"]
+[gd_scene load_steps=17 format=3 uid="uid://41fehitxf0b1"]
 
 [ext_resource type="Script" path="res://GDScripts/2d_player.gd" id="1_ecqth"]
 [ext_resource type="Texture2D" uid="uid://csww35ogk55kl" path="res://Art/2D/Atlantis/Sheets/mer_human_1.png" id="1_qfoyw"]
-[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/Main/FiniteStateMachine.gd" id="2_qwhtl"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerMovementStates/MovementFSM.gd" id="3_h2ban"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerMovementStates/idle_state.gd" id="3_vnqth"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerMovementStates/walking_state.gd" id="4_mibcl"]
 
@@ -13,10 +13,6 @@ region = Rect2(26, 0, 26, 36)
 [sub_resource type="AtlasTexture" id="AtlasTexture_08ima"]
 atlas = ExtResource("1_qfoyw")
 region = Rect2(26, 36, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y2het"]
-atlas = ExtResource("1_qfoyw")
-region = Rect2(26, 72, 26, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13vsj"]
 atlas = ExtResource("1_qfoyw")
@@ -62,15 +58,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_08ima")
 }],
 "loop": true,
-"name": &"Idle_Left",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y2het")
-}],
-"loop": true,
-"name": &"Idle_Right",
+"name": &"Idle_Sideways",
 "speed": 1.0
 }, {
 "frames": [{
@@ -116,6 +104,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnhch"]
+resource_local_to_scene = true
 size = Vector2(17, 30)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -124,7 +113,7 @@ script = ExtResource("1_ecqth")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_roqxx")
-animation = &"Walk_Sideways"
+animation = &"Idle_Sideways"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)
@@ -132,7 +121,7 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_qnhch")
 
 [node name="MovementFSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_qwhtl")
+script = ExtResource("3_h2ban")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="MovementFSM"]

@@ -3,16 +3,12 @@ class_name PlayerWalk
 
 const SPEED := 300.0
 
-enum WALK_DIRECTION {UP, DOWN, LEFT, RIGHT}
-
 const direction_input_map = {
-	WALK_DIRECTION.UP: "Up",
-	WALK_DIRECTION.DOWN: "Down",
-	WALK_DIRECTION.LEFT: "Left",
-	WALK_DIRECTION.RIGHT: "Right"
+	movement_fsm.PLAYER_ORIENTATION.UP: "Up",
+	movement_fsm.PLAYER_ORIENTATION.DOWN: "Down",
+	movement_fsm.PLAYER_ORIENTATION.LEFT: "Left",
+	movement_fsm.PLAYER_ORIENTATION.RIGHT: "Right"
 }
-
-var current_walk_direction : WALK_DIRECTION
 
 func Enter() -> void:
 	print_debug("Entering walking state...")
@@ -49,23 +45,23 @@ func _handle_movement() -> void:
 	
 	# Set current direction
 	if vertical_direction < 0:
-		current_walk_direction = WALK_DIRECTION.UP
+		movement_fsm.last_orientation = movement_fsm.PLAYER_ORIENTATION.UP
 	elif vertical_direction > 0:
-		current_walk_direction = WALK_DIRECTION.DOWN
+		movement_fsm.last_orientation = movement_fsm.PLAYER_ORIENTATION.DOWN
 	elif horizontal_direction < 0:
-		current_walk_direction = WALK_DIRECTION.LEFT
+		movement_fsm.last_orientation = movement_fsm.PLAYER_ORIENTATION.LEFT
 	elif horizontal_direction > 0:
-		current_walk_direction = WALK_DIRECTION.RIGHT
+		movement_fsm.last_orientation = movement_fsm.PLAYER_ORIENTATION.RIGHT
 
 func _update_animation() -> void:
-	match current_walk_direction:
-		WALK_DIRECTION.UP:
+	match movement_fsm.last_orientation:
+		movement_fsm.PLAYER_ORIENTATION.UP:
 			animator.play("Walk_Up")
-		WALK_DIRECTION.DOWN:
+		movement_fsm.PLAYER_ORIENTATION.DOWN:
 			animator.play("Walk_Down")
-		WALK_DIRECTION.LEFT:
+		movement_fsm.PLAYER_ORIENTATION.LEFT:
 			animator.play("Walk_Sideways")
 			animator.flip_h = false
-		WALK_DIRECTION.RIGHT:
+		movement_fsm.PLAYER_ORIENTATION.RIGHT:
 			animator.play("Walk_Sideways")
 			animator.flip_h = true
