@@ -1,14 +1,14 @@
 extends Node2D
 
-@onready var movement_fsm: PlayerFSM = $"../FSM"
+@onready var fsm: PlayerFSM = $"../FSM"
 
 func _process(delta: float) -> void:
-	match movement_fsm.last_orientation:
+	match fsm.last_orientation:
 		#movement_fsm.PLAYER_ORIENTATION.UP:
 			#rotation_degrees = 90
 		#movement_fsm.PLAYER_ORIENTATION.DOWN:
 			#rotation_degrees = -90
-		movement_fsm.PLAYER_ORIENTATION.LEFT:
+		fsm.ORIENTATION.LEFT:
 			rotation_degrees = 180
-		movement_fsm.PLAYER_ORIENTATION.RIGHT:
+		fsm.ORIENTATION.RIGHT:
 			rotation_degrees = 0

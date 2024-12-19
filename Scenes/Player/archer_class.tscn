@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://28j06wxvyric"]
+[gd_scene load_steps=41 format=3 uid="uid://28j06wxvyric"]
 
 [ext_resource type="PackedScene" uid="uid://41fehitxf0b1" path="res://Scenes/Player/player_base.tscn" id="1_kqd3m"]
 [ext_resource type="Texture2D" uid="uid://c3cod4hgyp3da" path="res://Art/2D/Fantasy/Class - Archer/spritesheet.png" id="2_vaxt5"]
 [ext_resource type="PackedScene" uid="uid://c637rpes2nay1" path="res://Scenes/Projectile/arcane_arrow.tscn" id="3_6yeei"]
+[ext_resource type="Resource" uid="uid://bqb0fygtsjlpj" path="res://Resources/Player/player_stats.tres" id="4_syvqu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2464o"]
 atlas = ExtResource("2_vaxt5")
@@ -279,8 +280,7 @@ size = Vector2(17, 30)
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_s7omt")
-animation = &"Idle"
-frame_progress = 0.831051
+animation = &"Death"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_vmpx4")
@@ -291,3 +291,6 @@ projectile = ExtResource("3_6yeei")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-0.5, 0)
+
+[node name="Stats" parent="." index="5"]
+stats = ExtResource("4_syvqu")

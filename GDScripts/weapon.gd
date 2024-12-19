@@ -26,9 +26,9 @@ func _shoot() -> void:
 			#new_projectile.rotation_degrees = -90
 		#fsm.PLAYER_ORIENTATION.DOWN:
 			#new_projectile.rotation_degrees = 90
-		fsm.PLAYER_ORIENTATION.LEFT:
+		fsm.ORIENTATION.LEFT:
 			new_projectile.rotation_degrees = 180
-		fsm.PLAYER_ORIENTATION.RIGHT:
+		fsm.ORIENTATION.RIGHT:
 			new_projectile.rotation_degrees = 0
 	get_tree().root.add_child(new_projectile)
 	

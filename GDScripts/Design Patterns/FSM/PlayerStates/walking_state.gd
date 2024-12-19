@@ -6,8 +6,8 @@ const SPEED := 300.0
 const direction_input_map = {
 	#movement_fsm.PLAYER_ORIENTATION.UP: "Up",
 	#movement_fsm.PLAYER_ORIENTATION.DOWN: "Down",
-	movement_fsm.PLAYER_ORIENTATION.LEFT: "Left",
-	movement_fsm.PLAYER_ORIENTATION.RIGHT: "Right"
+	fsm.ORIENTATION.LEFT: "Left",
+	fsm.ORIENTATION.RIGHT: "Right"
 }
 
 func Enter() -> void:
@@ -19,7 +19,6 @@ func Exit() -> void:
 func Physics_Update(_delta: float) -> void:
 	_handle_movement()
 	_update_animation()
-	StateSwitchLogic()
 	
 func StateSwitchLogic() -> void:
 	if Input.is_action_pressed("Left") and Input.is_action_pressed("Right") or Input.is_action_pressed("Up") and Input.is_action_pressed("Down"):
@@ -43,8 +42,8 @@ func _handle_movement() -> void:
 		movement_direction = movement_direction.normalized()
 	
 	# Apply movement
-	player.velocity.x = movement_direction.x * SPEED
-	player.velocity.y = movement_direction.y * SPEED
+	body.velocity.x = movement_direction.x * SPEED
+	body.velocity.y = movement_direction.y * SPEED
 	
 	# Set current direction
 	#if vertical_direction < 0:
@@ -52,20 +51,20 @@ func _handle_movement() -> void:
 	#elif vertical_direction > 0:
 		#movement_fsm.last_orientation = movement_fsm.PLAYER_ORIENTATION.DOWN
 	if horizontal_direction < 0:
-		movement_fsm.last_orientation = movement_fsm.PLAYER_ORIENTATION.LEFT
+		fsm.last_orientation = fsm.ORIENTATION.LEFT
 	elif horizontal_direction > 0:
-		movement_fsm.last_orientation = movement_fsm.PLAYER_ORIENTATION.RIGHT
+		fsm.last_orientation = fsm.ORIENTATION.RIGHT
 
 func _update_animation() -> void:
 	animator.play("Run")
-	match movement_fsm.last_orientation:
+	match fsm.last_orientation:
 		#movement_fsm.PLAYER_ORIENTATION.UP:
 			#animator.play("Walk_Up")
 		#movement_fsm.PLAYER_ORIENTATION.DOWN:
 			#animator.play("Walk_Down")
-		movement_fsm.PLAYER_ORIENTATION.LEFT:
+		fsm.ORIENTATION.LEFT:
 			#animator.play("Run")
 			animator.flip_h = true
-		movement_fsm.PLAYER_ORIENTATION.RIGHT:
+		fsm.ORIENTATION.RIGHT:
 			#animator.play("Run")
 			animator.flip_h = false

@@ -1,19 +1,13 @@
-extends PlayerState
-class_name PlayerIdle
+extends EnemyState
+class_name EnemyIdle
 
 func Enter():
 	print_debug("Entering idle state...")
 	animator.play("Idle")
 	match fsm.last_orientation:
-		#movement_fsm.PLAYER_ORIENTATION.UP:
-			#animator.play("Idle_Up")
-		#movement_fsm.PLAYER_ORIENTATION.DOWN:
-			#animator.play("Idle_Down")
 		fsm.ORIENTATION.LEFT:
-			#animator.play("Idle")
 			animator.flip_h = true
 		fsm.ORIENTATION.RIGHT:
-			#animator.play("Idle")
 			animator.flip_h = false
 func Exit():
 	print_debug("Exiting idle state...")

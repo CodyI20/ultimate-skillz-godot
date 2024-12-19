@@ -1,6 +1,5 @@
-extends State
+extends MovementState
 class_name PlayerState
 
-@onready var animator: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var player: CharacterBody2D = $"../.."
-@onready var movement_fsm: PlayerFSM = $".."
+func _ready() -> void:
+	Events.player_died.connect(_go_to_dead_state)

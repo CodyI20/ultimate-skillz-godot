@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=8 format=3 uid="uid://dtfveytixqslk"]
 
 [ext_resource type="Texture2D" uid="uid://dmif6ga4op2va" path="res://Art/2D/Atlantis/Sheets/mer_8_shadow_1.png" id="1_4fswm"]
-[ext_resource type="Script" path="res://GDScripts/enemy_stats.gd" id="1_a4l7m"]
+[ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/Base/EnemyFSM.gd" id="3_ryjq3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnfiw"]
 atlas = ExtResource("1_4fswm")
@@ -27,7 +28,6 @@ size = Vector2(19, 40)
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 32
 collision_mask = 4
-script = ExtResource("1_a4l7m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hpdof")
@@ -43,3 +43,17 @@ shape = SubResource("RectangleShape2D_ea3nk")
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_flbdx")
 debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
+
+[node name="Stats" type="Node2D" parent="."]
+script = ExtResource("2_inx2t")
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("3_ryjq3")
+
+[node name="Idle" type="Node" parent="FSM"]
+
+[node name="Walking" type="Node" parent="FSM"]
+
+[node name="Attacking" type="Node" parent="FSM"]
+
+[node name="Dead" type="Node" parent="FSM"]

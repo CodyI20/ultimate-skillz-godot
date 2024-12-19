@@ -1,0 +1,2 @@
+extends MovementFSM
+class_name EnemyFSM

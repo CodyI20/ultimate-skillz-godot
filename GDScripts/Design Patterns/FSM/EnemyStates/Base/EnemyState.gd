@@ -1,0 +1,2 @@
+extends MovementState
+class_name EnemyState

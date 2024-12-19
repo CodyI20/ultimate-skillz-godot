@@ -13,10 +13,10 @@ func Update(_delta:float) -> void:
 	pass
 	
 func StateInput(event: InputEvent) -> void:
-	pass
+	StateSwitchLogic()
 
 func Physics_Update(_delta:float) -> void:
 	pass
 	
 func StateSwitchLogic() -> void:
-	print_debug("Switching state logic activated!")
+	pass
