@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d5n4sq0ejhjy"]
+[gd_scene load_steps=7 format=3 uid="uid://d5n4sq0ejhjy"]
 
 [ext_resource type="Texture2D" uid="uid://crk2g0kmxqlp8" path="res://Art/2D/Atlantis/HunterClass/Arrows_pack.png" id="1_l8bxe"]
 [ext_resource type="Script" path="res://GDScripts/projectile.gd" id="1_nw5td"]
@@ -21,6 +21,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d2hu"]
 size = Vector2(22, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48l5e"]
+size = Vector2(24, 8)
+
 [node name="Projectile" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 32
@@ -35,3 +38,11 @@ offset = Vector2(-332.8, -76.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5d2hu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_48l5e")
+debug_color = Color(0.737477, 0.35414, 0.781858, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
