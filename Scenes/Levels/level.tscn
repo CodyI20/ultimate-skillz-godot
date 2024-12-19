@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btq58eeepvh6l"]
 
-[ext_resource type="PackedScene" uid="uid://41fehitxf0b1" path="res://Scenes/Player/player.tscn" id="1_03bu7"]
+[ext_resource type="PackedScene" uid="uid://28j06wxvyric" path="res://Scenes/Player/archer_class.tscn" id="2_ecqfq"]
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="2_wvlip"]
 
 [sub_resource type="TileSet" id="TileSet_514is"]
@@ -10,8 +10,8 @@
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_514is")
 
-[node name="Player" parent="." instance=ExtResource("1_03bu7")]
-position = Vector2(1061, 540)
-
 [node name="Enemy" parent="." instance=ExtResource("2_wvlip")]
 position = Vector2(671, 513)
+
+[node name="ArcherClass" parent="." instance=ExtResource("2_ecqfq")]
+position = Vector2(1045, 527)

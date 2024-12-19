@@ -1,22 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://d5n4sq0ejhjy"]
+[gd_scene load_steps=4 format=3 uid="uid://d5n4sq0ejhjy"]
 
-[ext_resource type="Texture2D" uid="uid://crk2g0kmxqlp8" path="res://Art/2D/Atlantis/HunterClass/Arrows_pack.png" id="1_l8bxe"]
 [ext_resource type="Script" path="res://GDScripts/projectile.gd" id="1_nw5td"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_irs12"]
-atlas = ExtResource("1_l8bxe")
-region = Rect2(0, 0, 1024, 1024)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k3fmr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_irs12")
-}],
-"loop": true,
-"name": &"Moving",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d2hu"]
 size = Vector2(22, 6)
@@ -29,11 +13,9 @@ collision_layer = 4
 collision_mask = 32
 script = ExtResource("1_nw5td")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15, 5)
-scale = Vector2(0.0390625, 0.0390625)
-sprite_frames = SubResource("SpriteFrames_k3fmr")
-animation = &"Moving"
 offset = Vector2(-332.8, -76.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

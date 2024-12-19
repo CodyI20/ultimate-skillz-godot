@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4gwlpungp8pu"
-path="res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"
+uid="uid://c3cod4hgyp3da"
+path="res://.godot/imported/spritesheet.png-150b6cead960409d977dfa7bf478fa64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Atlantis/tf_atlantis_tiles.png"
-dest_files=["res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"]
+source_file="res://Art/2D/Fantasy/Class - Archer/spritesheet.png"
+dest_files=["res://.godot/imported/spritesheet.png-150b6cead960409d977dfa7bf478fa64.ctex"]
 
 [params]
 

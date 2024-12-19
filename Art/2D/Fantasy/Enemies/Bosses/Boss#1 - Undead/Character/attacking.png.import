@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4gwlpungp8pu"
-path="res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"
+uid="uid://bdookkq4ryaau"
+path="res://.godot/imported/attacking.png-cf25ec9b6f8db7273a59d84dfcd98828.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Atlantis/tf_atlantis_tiles.png"
-dest_files=["res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"]
+source_file="res://Art/2D/Fantasy/Enemies/Bosses/Boss#1 - Undead/Character/attacking.png"
+dest_files=["res://.godot/imported/attacking.png-cf25ec9b6f8db7273a59d84dfcd98828.ctex"]
 
 [params]
 

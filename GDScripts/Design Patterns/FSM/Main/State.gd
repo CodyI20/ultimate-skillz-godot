@@ -11,6 +11,9 @@ func Exit() -> void:
 
 func Update(_delta:float) -> void:
 	pass
+	
+func StateInput(event: InputEvent) -> void:
+	pass
 
 func Physics_Update(_delta:float) -> void:
 	pass

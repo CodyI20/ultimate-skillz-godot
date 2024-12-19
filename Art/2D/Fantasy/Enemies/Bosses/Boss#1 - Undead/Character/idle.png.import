@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4gwlpungp8pu"
-path="res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"
+uid="uid://ds0yv17gdmfdf"
+path="res://.godot/imported/idle.png-73322325af6a217dc38e69aa73110545.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Atlantis/tf_atlantis_tiles.png"
-dest_files=["res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"]
+source_file="res://Art/2D/Fantasy/Enemies/Bosses/Boss#1 - Undead/Character/idle.png"
+dest_files=["res://.godot/imported/idle.png-73322325af6a217dc38e69aa73110545.ctex"]
 
 [params]
 

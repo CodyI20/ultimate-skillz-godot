@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4gwlpungp8pu"
-path="res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"
+uid="uid://146f86n6kctl"
+path="res://.godot/imported/masked_woman.png-551561d1a20276bdc8bf6b26ecd39b47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Atlantis/tf_atlantis_tiles.png"
-dest_files=["res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"]
+source_file="res://Art/2D/Fantasy/NPC/masked_woman.png"
+dest_files=["res://.godot/imported/masked_woman.png-551561d1a20276bdc8bf6b26ecd39b47.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4gwlpungp8pu"
-path="res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"
+uid="uid://byrvy804cl6vm"
+path="res://.godot/imported/mage_guardian-red.png-59160d26ff2bad8b0bcb58e600dc58c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Atlantis/tf_atlantis_tiles.png"
-dest_files=["res://.godot/imported/tf_atlantis_tiles.png-e89f10af49c5763368389dc0c001b365.ctex"]
+source_file="res://Art/2D/Fantasy/NPC/MageGuardian/mage_guardian-red.png"
+dest_files=["res://.godot/imported/mage_guardian-red.png-59160d26ff2bad8b0bcb58e600dc58c4.ctex"]
 
 [params]
 
