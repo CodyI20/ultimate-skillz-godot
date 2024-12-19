@@ -16,7 +16,6 @@ func _ready() -> void:
 		printerr("THE PROJECTILE CANNOT BE NULL!")
 
 func _shoot() -> void:
-	Events.shooting.emit()
 	animator.play("Shoot")
 	await animator.animation_finished
 	# LOGIC FOR SHOOTING

@@ -20,6 +20,7 @@ func Physics_Update(_delta: float) -> void:
 	_handle_movement()
 	_update_animation()
 	StateSwitchLogic()
+	
 func StateSwitchLogic() -> void:
 	if Input.is_action_pressed("Left") and Input.is_action_pressed("Right") or Input.is_action_pressed("Up") and Input.is_action_pressed("Down"):
 		state_transition.emit(self, "Idle")
