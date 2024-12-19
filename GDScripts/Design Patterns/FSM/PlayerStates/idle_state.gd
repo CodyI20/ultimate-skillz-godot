@@ -2,7 +2,6 @@ extends PlayerState
 class_name PlayerIdle
 
 func Enter():
-	print_debug("Entering idle state...")
 	animator.play("Idle")
 	match fsm.last_orientation:
 		#movement_fsm.PLAYER_ORIENTATION.UP:
@@ -16,7 +15,7 @@ func Enter():
 			#animator.play("Idle")
 			animator.flip_h = false
 func Exit():
-	print_debug("Exiting idle state...")
+	pass
 	
 func StateSwitchLogic():
 	if Input.is_action_pressed("Right") or Input.is_action_pressed("Left") or Input.is_action_pressed("Down") or Input.is_action_pressed("Up"):

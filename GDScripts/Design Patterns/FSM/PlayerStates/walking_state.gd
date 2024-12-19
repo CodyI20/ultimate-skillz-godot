@@ -10,12 +10,6 @@ const direction_input_map = {
 	fsm.ORIENTATION.RIGHT: "Right"
 }
 
-func Enter() -> void:
-	print_debug("Entering walking state...")
-	
-func Exit() -> void:
-	print_debug("Exiting walking state...")
-
 func Physics_Update(_delta: float) -> void:
 	_handle_movement()
 	_update_animation()

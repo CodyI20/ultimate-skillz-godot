@@ -1,23 +1,21 @@
 extends EnemyState
 class_name EnemyIdle
 
+@export var minimum_patrol_delay_time := 2.0
+
 func Enter():
-	print_debug("Entering idle state...")
+	print_debug("Enemy entering idle state...")
 	animator.play("Idle")
+	await get_tree().create_timer(get_random_delay()).timeout
+	state_transition.emit(self, "Patrolling")
 	match fsm.last_orientation:
 		fsm.ORIENTATION.LEFT:
 			animator.flip_h = true
 		fsm.ORIENTATION.RIGHT:
 			animator.flip_h = false
 func Exit():
-	print_debug("Exiting idle state...")
-	
-func StateSwitchLogic():
-	if Input.is_action_pressed("Right") or Input.is_action_pressed("Left") or Input.is_action_pressed("Down") or Input.is_action_pressed("Up"):
-		state_transition.emit(self, "Walking")
-	if Input.is_action_just_pressed("Right") or Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Down") or Input.is_action_just_pressed("Up") or Input.is_action_just_released("Down") or Input.is_action_just_released("Up") or Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
-		state_transition.emit(self, "Walking")
-	if Input.is_action_just_released("Down") or Input.is_action_just_released("Up") or Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
-		state_transition.emit(self, "Walking")
-	if Input.is_action_just_pressed("Attack"):
-		state_transition.emit(self, "Shooting")
+	pass
+
+func get_random_delay() -> float:
+	var random = RandomNumberGenerator.new()
+	return randf_range(minimum_patrol_delay_time, 5.0)

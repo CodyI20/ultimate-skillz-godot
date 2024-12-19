@@ -5,7 +5,7 @@ uniform bool flash = false;
 
 void fragment() {
 	vec4 color = texture(TEXTURE, UV);
-	
+
 	if (flash){
 		COLOR = mix(color,flash_color, color.a);
 	}

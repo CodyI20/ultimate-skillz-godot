@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=11 format=3 uid="uid://dtfveytixqslk"]
 
 [ext_resource type="Texture2D" uid="uid://dmif6ga4op2va" path="res://Art/2D/Atlantis/Sheets/mer_8_shadow_1.png" id="1_4fswm"]
 [ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
+[ext_resource type="Resource" uid="uid://cyfp6ebl5rxnh" path="res://Resources/Enemy/enemy_stats.tres" id="3_n3xfa"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/Base/EnemyFSM.gd" id="3_ryjq3"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/idle_state.gd" id="4_eysva"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/patrolling_state.gd" id="5_44ib6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnfiw"]
 atlas = ExtResource("1_4fswm")
@@ -46,14 +49,21 @@ debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
 
 [node name="Stats" type="Node2D" parent="."]
 script = ExtResource("2_inx2t")
+stats = ExtResource("3_n3xfa")
 
-[node name="FSM" type="Node" parent="."]
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_ryjq3")
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="FSM"]
+script = ExtResource("4_eysva")
 
-[node name="Walking" type="Node" parent="FSM"]
+[node name="Patrolling" type="Node" parent="FSM"]
+script = ExtResource("5_44ib6")
 
 [node name="Attacking" type="Node" parent="FSM"]
 
 [node name="Dead" type="Node" parent="FSM"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
