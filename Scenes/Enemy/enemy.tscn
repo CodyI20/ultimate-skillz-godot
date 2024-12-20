@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=11 format=3 uid="uid://dtfveytixqslk"]
 
 [ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="1_7sx7y"]
 [ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
@@ -7,12 +7,13 @@
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/idle_state.gd" id="4_eysva"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/patrolling_state.gd" id="5_44ib6"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/dead_state.gd" id="6_7so4e"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/hit_state.gd" id="7_5r1qx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3nk"]
-size = Vector2(23, 24)
+size = Vector2(23, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flbdx"]
-size = Vector2(29, 30)
+size = Vector2(37, 43)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 32
@@ -20,16 +21,16 @@ collision_mask = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_7sx7y")
-animation = &"Idle"
+animation = &"Hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
-position = Vector2(-0.5, 1)
+position = Vector2(-0.5, 8)
 shape = SubResource("RectangleShape2D_ea3nk")
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemy"]]
-position = Vector2(-0.5, 1)
+position = Vector2(-0.5, 7.5)
 shape = SubResource("RectangleShape2D_flbdx")
 debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
 
@@ -46,6 +47,9 @@ script = ExtResource("4_eysva")
 
 [node name="Patrolling" type="Node" parent="FSM"]
 script = ExtResource("5_44ib6")
+
+[node name="Hit" type="Node" parent="FSM"]
+script = ExtResource("7_5r1qx")
 
 [node name="Attacking" type="Node" parent="FSM"]
 

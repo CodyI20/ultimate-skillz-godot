@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://djmtg6ofbtejh"]
 
 [resource]
+resource_local_to_scene = true
 animations = [{
 "frames": [],
 "loop": false,

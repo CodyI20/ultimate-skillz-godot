@@ -3,6 +3,7 @@ class_name FiniteStateMachine
 
 @export var initial_state : State
 
+var previous_state : State
 var current_state : State
 var states: Dictionary = {}
 
@@ -43,6 +44,7 @@ func on_child_transition(source_state: State, new_state_name: String) -> void:
 	if current_state:
 		current_state.Exit()
 		
+	previous_state = current_state
 	new_state.Enter()
 	
 	current_state = new_state

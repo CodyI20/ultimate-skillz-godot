@@ -793,7 +793,7 @@ navigation_polygon = SubResource("NavigationPolygon_xh7mc")
 position = Vector2(1045, 527)
 
 [node name="Goblin" parent="." instance=ExtResource("3_v7kt3")]
-position = Vector2(600, 464)
+position = Vector2(543, 449)
 
 [node name="Goblin2" parent="." instance=ExtResource("3_v7kt3")]
-position = Vector2(611, 584)
+position = Vector2(525, 669)
