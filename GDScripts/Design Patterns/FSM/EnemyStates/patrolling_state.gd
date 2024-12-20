@@ -39,4 +39,4 @@ func choose_patrolling_point() -> void:
 		choose_patrolling_point()
 	print_debug("Destination set at %s" % target_point)
 	navigation_agent_2d.set_target_position(target_point)
-	#animator.play("Moving")
+	animator.play("Run")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://70mw6vjqtfm8"]
+
+[ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
+
+[node name="Goblin" instance=ExtResource("1_71ncb")]
+scale = Vector2(1.5, 1.5)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.7, 0.7)
+animation = &"Run"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.5, 7)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-0.5, 7)

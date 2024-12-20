@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u1sare4cii56"
-path="res://.godot/imported/projectile_sprite.png-41eac9d187ee96cb43a76194538de43c.ctex"
+uid="uid://dpg5aeqjpkv2b"
+path="res://.godot/imported/Attack.png-6174b267cf2358c8eec6c60e2ba063d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Fantasy/Enemies/Others/Flying eye/projectile_sprite.png"
-dest_files=["res://.godot/imported/projectile_sprite.png-41eac9d187ee96cb43a76194538de43c.ctex"]
+source_file="res://Art/2D/Fantasy/Enemies/Others/Goblin/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-6174b267cf2358c8eec6c60e2ba063d1.ctex"]
 
 [params]
 

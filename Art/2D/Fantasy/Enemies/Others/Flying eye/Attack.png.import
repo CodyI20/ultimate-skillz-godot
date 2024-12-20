@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbyqqfeknxflc"
-path="res://.godot/imported/Attack3.png-24c0f81ab0ee5bec660a497537efb322.ctex"
+uid="uid://cka84hia2g01r"
+path="res://.godot/imported/Attack.png-bda42886f9a1d1b80f45a712beeaa286.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Fantasy/Enemies/Others/Mushroom/Attack3.png"
-dest_files=["res://.godot/imported/Attack3.png-24c0f81ab0ee5bec660a497537efb322.ctex"]
+source_file="res://Art/2D/Fantasy/Enemies/Others/Flying eye/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-bda42886f9a1d1b80f45a712beeaa286.ctex"]
 
 [params]
 

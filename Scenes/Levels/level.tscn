@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4gwlpungp8pu" path="res://Art/2D/Atlantis/tf_atlantis_tiles.png" id="1_d6biu"]
 [ext_resource type="PackedScene" uid="uid://28j06wxvyric" path="res://Scenes/Player/archer_class.tscn" id="2_ecqfq"]
-[ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="2_wvlip"]
+[ext_resource type="PackedScene" uid="uid://70mw6vjqtfm8" path="res://Scenes/Enemy/goblin.tscn" id="3_v7kt3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ry0f"]
 texture = ExtResource("1_d6biu")
@@ -789,8 +789,11 @@ tile_set = SubResource("TileSet_514is")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_xh7mc")
 
-[node name="Enemy" parent="." instance=ExtResource("2_wvlip")]
-position = Vector2(671, 513)
-
 [node name="ArcherClass" parent="." instance=ExtResource("2_ecqfq")]
 position = Vector2(1045, 527)
+
+[node name="Goblin" parent="." instance=ExtResource("3_v7kt3")]
+position = Vector2(600, 464)
+
+[node name="Goblin2" parent="." instance=ExtResource("3_v7kt3")]
+position = Vector2(611, 584)

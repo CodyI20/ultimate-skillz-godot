@@ -7,7 +7,3 @@ class_name MovementState
 
 func Physics_Update(delta: float) -> void:
 	body.velocity = Vector2.ZERO
-
-func _go_to_dead_state() -> void:
-	if fsm.current_state == self:
-		state_transition.emit(self, "Dead")

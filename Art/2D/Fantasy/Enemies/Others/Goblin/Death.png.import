@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mcrukwp6fqj1"
-path="res://.godot/imported/Attack3.png-12a8b6a7def9a6f4ecb37d9f22100836.ctex"
+uid="uid://bo1q7o40jv38r"
+path="res://.godot/imported/Death.png-82e1b760b807948f0ce6eca2e2286337.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Fantasy/Enemies/Others/Goblin/Attack3.png"
-dest_files=["res://.godot/imported/Attack3.png-12a8b6a7def9a6f4ecb37d9f22100836.ctex"]
+source_file="res://Art/2D/Fantasy/Enemies/Others/Goblin/Death.png"
+dest_files=["res://.godot/imported/Death.png-82e1b760b807948f0ce6eca2e2286337.ctex"]
 
 [params]
 

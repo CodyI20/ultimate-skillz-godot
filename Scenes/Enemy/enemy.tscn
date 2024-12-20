@@ -1,39 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=10 format=3 uid="uid://dtfveytixqslk"]
 
-[ext_resource type="Texture2D" uid="uid://dmif6ga4op2va" path="res://Art/2D/Atlantis/Sheets/mer_8_shadow_1.png" id="1_4fswm"]
+[ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="1_7sx7y"]
 [ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
 [ext_resource type="Resource" uid="uid://cyfp6ebl5rxnh" path="res://Resources/Enemy/enemy_stats.tres" id="3_n3xfa"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/Base/EnemyFSM.gd" id="3_ryjq3"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/idle_state.gd" id="4_eysva"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/patrolling_state.gd" id="5_44ib6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnfiw"]
-atlas = ExtResource("1_4fswm")
-region = Rect2(26, 0, 26, 46)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hpdof"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pnfiw")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/dead_state.gd" id="6_7so4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3nk"]
-size = Vector2(17, 38)
+size = Vector2(23, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flbdx"]
-size = Vector2(19, 40)
+size = Vector2(29, 30)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 32
 collision_mask = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_hpdof")
+sprite_frames = ExtResource("1_7sx7y")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
@@ -64,6 +50,7 @@ script = ExtResource("5_44ib6")
 [node name="Attacking" type="Node" parent="FSM"]
 
 [node name="Dead" type="Node" parent="FSM"]
+script = ExtResource("6_7so4e")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true

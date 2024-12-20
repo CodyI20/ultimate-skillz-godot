@@ -3,5 +3,7 @@
 [ext_resource type="Script" path="res://GDScripts/player_stats.gd" id="1_lnjpi"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_lnjpi")
 health = 100
+self_damage = 50

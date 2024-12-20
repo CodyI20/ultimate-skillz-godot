@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdro3ogp51ecc"
-path="res://.godot/imported/Projectile_sprite.png-dc1caa64d504d2df4de5f199a8f87af1.ctex"
+uid="uid://ciq6u6skkojiq"
+path="res://.godot/imported/Death.png-8ef5d3a8573a5eff3ff96f9ac47b001b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/2D/Fantasy/Enemies/Others/Mushroom/Projectile_sprite.png"
-dest_files=["res://.godot/imported/Projectile_sprite.png-dc1caa64d504d2df4de5f199a8f87af1.ctex"]
+source_file="res://Art/2D/Fantasy/Enemies/Others/Mushroom/Death.png"
+dest_files=["res://.godot/imported/Death.png-8ef5d3a8573a5eff3ff96f9ac47b001b.ctex"]
 
 [params]
 
