@@ -5,7 +5,8 @@ func Enter() -> void:
 	print_debug("Enemy entering hit state...")
 	animator.play("Hit")
 	await animator.animation_finished
-	state_transition.emit(self, chase.name)
+	if not is_dead:
+		state_transition.emit(self, chase.name)
 	
 
 func _ready() -> void:

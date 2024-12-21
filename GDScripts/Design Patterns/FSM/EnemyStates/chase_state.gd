@@ -13,6 +13,8 @@ func _ready() -> void:
 	Events.enemy_attacking.connect(_go_to_attack_state)
 
 func Enter() -> void:
+	if is_dead:
+		state_transition.emit(self, dead.name)
 	if close_enough == false:
 		animator.play("Run")
 	else:

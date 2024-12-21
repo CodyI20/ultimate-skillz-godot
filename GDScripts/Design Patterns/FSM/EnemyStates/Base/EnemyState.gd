@@ -12,6 +12,8 @@ var initial_position : Vector2
 @onready var attacking: EnemyAttack = $"../Attacking"
 @onready var dead: EnemyDead = $"../Dead"
 
+var is_dead := false
+
 
 func _ready() -> void:
 	initial_position = body.global_position
@@ -23,7 +25,7 @@ func _go_to_attack_state(input_enemy_brain : EnemyBrain) -> void:
 	state_transition.emit(self, attacking.name)
 	
 func _go_to_hit_state(area: Area2D, damage: int, source : Node2D) -> void:
-	if area != e_fsm.inner_area:
+	if area != area_2d:
 		print_debug("NOT THE SAME AREA.............")
 		return
 	state_transition.emit(self, hit.name)
@@ -31,6 +33,7 @@ func _go_to_hit_state(area: Area2D, damage: int, source : Node2D) -> void:
 func _go_to_dead_state(enemy: Enemy) -> void:
 	if enemy != e_fsm.enemy:
 		return
+	is_dead = true
 	state_transition.emit(self, dead.name)
 
 func _go_to_chase_state(enemy_body : CharacterBody2D, chase_target_body : Node2D) -> void:

@@ -25,6 +25,8 @@ offset = Vector2(-332.8, -76.8)
 shape = SubResource("RectangleShape2D_5d2hu")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_48l5e")
