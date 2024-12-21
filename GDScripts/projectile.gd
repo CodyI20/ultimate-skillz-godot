@@ -19,3 +19,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		#print_debug("Projectile hit an enemy...")
 		Events.projectile_hit.emit(area, projectile_damage, projectile_source)
 		queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	set_deferred("freeze", true)

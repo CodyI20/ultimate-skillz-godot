@@ -1,11 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://70mw6vjqtfm8"]
+[gd_scene load_steps=8 format=3 uid="uid://70mw6vjqtfm8"]
 
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
 [ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="2_eqvvl"]
 [ext_resource type="Script" path="res://GDScripts/enemy_stats.gd" id="2_nigu2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3nk"]
-size = Vector2(23, 38)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3f1gg"]
+resource_local_to_scene = true
+radius = 7.33333
+height = 18.6667
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xxldc"]
+resource_local_to_scene = true
+radius = 156.003
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1gck"]
+resource_local_to_scene = true
+radius = 19.3333
 
 [sub_resource type="Resource" id="Resource_aup37"]
 resource_local_to_scene = true
@@ -16,13 +26,20 @@ health = 75
 scale = Vector2(1.5, 1.5)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_eqvvl")
-animation = &"Death"
+animation = &"Idle"
 
-[node name="Area2D#CollisionShape2D" type="CollisionShape2D" parent="." index="1" groups=["enemy"]]
-position = Vector2(-0.5, 7)
-shape = SubResource("RectangleShape2D_ea3nk")
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 4.66667)
+shape = SubResource("CapsuleShape2D_3f1gg")
 
-[node name="Stats" parent="." index="5"]
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_xxldc")
+
+[node name="CollisionShape2D" parent="InnerArea" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_j1gck")
+
+[node name="Stats" parent="." index="4"]
 stats = SubResource("Resource_aup37")

@@ -10,25 +10,28 @@
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/hit_state.gd" id="7_5r1qx"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/chase_state.gd" id="8_dm66m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3nk"]
-size = Vector2(23, 38)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbbwq"]
+resource_local_to_scene = true
+radius = 7.33333
+height = 18.6667
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_522yn"]
+resource_local_to_scene = true
 radius = 156.003
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flbdx"]
-size = Vector2(37, 43)
+[sub_resource type="CircleShape2D" id="CircleShape2D_p5rkk"]
+resource_local_to_scene = true
+radius = 19.3333
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 32
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_yn8l4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
-position = Vector2(-0.5, 8)
-shape = SubResource("RectangleShape2D_ea3nk")
+shape = SubResource("CapsuleShape2D_qbbwq")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 32
@@ -41,8 +44,7 @@ debug_color = Color(0, 0.64725, 0.216212, 0.42)
 [node name="InnerArea" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InnerArea" groups=["enemy"]]
-position = Vector2(-0.5, 7.5)
-shape = SubResource("RectangleShape2D_flbdx")
+shape = SubResource("CircleShape2D_p5rkk")
 debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
 
 [node name="Stats" type="Node2D" parent="."]
