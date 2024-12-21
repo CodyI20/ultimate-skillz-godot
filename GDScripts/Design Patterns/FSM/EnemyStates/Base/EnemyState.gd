@@ -23,7 +23,8 @@ func _go_to_attack_state(input_enemy_brain : EnemyBrain) -> void:
 	state_transition.emit(self, attacking.name)
 	
 func _go_to_hit_state(area: Area2D, damage: int, source : Node2D) -> void:
-	if area != e_fsm.area_2d:
+	if area != e_fsm.inner_area:
+		print_debug("NOT THE SAME AREA.............")
 		return
 	state_transition.emit(self, hit.name)
 

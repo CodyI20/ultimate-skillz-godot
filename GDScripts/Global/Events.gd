@@ -1,6 +1,6 @@
 extends Node
 
-signal projectile_hit(area: Node2D, damage: int, source: Node2D)
+signal projectile_hit(area: Area2D, damage: int, source: Node2D)
 signal shooting()
 signal player_died()
 

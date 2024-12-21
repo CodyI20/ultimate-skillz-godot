@@ -41,7 +41,7 @@ script = ExtResource("1_yn8l4")
 shape = SubResource("CapsuleShape2D_qbbwq")
 
 [node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
-collision_layer = 32
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
@@ -49,6 +49,8 @@ shape = SubResource("CircleShape2D_522yn")
 debug_color = Color(0, 0.64725, 0.216212, 0.42)
 
 [node name="InnerArea" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 32
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InnerArea" groups=["enemy"]]
 shape = SubResource("CircleShape2D_p5rkk")

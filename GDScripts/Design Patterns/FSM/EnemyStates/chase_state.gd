@@ -42,6 +42,8 @@ func Physics_Update(delta: float) -> void:
 
 
 func _on_navigation_agent_2d_target_reached() -> void:
+	if e_fsm.current_state != self:
+		return
 	close_enough = true
 	animator.play("Idle")
 	print_debug("REACHED")
