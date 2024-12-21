@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://70mw6vjqtfm8"]
+[gd_scene load_steps=5 format=3 uid="uid://70mw6vjqtfm8"]
 
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
 [ext_resource type="Script" path="res://GDScripts/enemy_stats.gd" id="2_nigu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3nk"]
+size = Vector2(23, 38)
 
 [sub_resource type="Resource" id="Resource_aup37"]
 resource_local_to_scene = true
@@ -15,11 +18,9 @@ scale = Vector2(1.5, 1.5)
 scale = Vector2(0.7, 0.7)
 animation = &"Run"
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="Area2D#CollisionShape2D" type="CollisionShape2D" parent="." index="1" groups=["enemy"]]
 position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_ea3nk")
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(-0.5, 7)
-
-[node name="Stats" parent="." index="3"]
+[node name="Stats" parent="." index="4"]
 stats = SubResource("Resource_aup37")

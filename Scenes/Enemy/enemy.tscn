@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=14 format=3 uid="uid://dtfveytixqslk"]
 
 [ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="1_7sx7y"]
+[ext_resource type="Script" path="res://GDScripts/enemy_brain.gd" id="1_yn8l4"]
 [ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
 [ext_resource type="Resource" uid="uid://cyfp6ebl5rxnh" path="res://Resources/Enemy/enemy_stats.tres" id="3_n3xfa"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/Base/EnemyFSM.gd" id="3_ryjq3"]
@@ -8,9 +9,13 @@
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/patrolling_state.gd" id="5_44ib6"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/dead_state.gd" id="6_7so4e"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/hit_state.gd" id="7_5r1qx"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/chase_state.gd" id="8_dm66m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3nk"]
 size = Vector2(23, 38)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_522yn"]
+radius = 156.003
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flbdx"]
 size = Vector2(37, 43)
@@ -18,6 +23,7 @@ size = Vector2(37, 43)
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 32
 collision_mask = 4
+script = ExtResource("1_yn8l4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_7sx7y")
@@ -27,9 +33,17 @@ animation = &"Hit"
 position = Vector2(-0.5, 8)
 shape = SubResource("RectangleShape2D_ea3nk")
 
-[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_522yn")
+debug_color = Color(0, 0.64725, 0.216212, 0.42)
+
+[node name="InnerArea" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InnerArea" groups=["enemy"]]
 position = Vector2(-0.5, 7.5)
 shape = SubResource("RectangleShape2D_flbdx")
 debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
@@ -48,6 +62,9 @@ script = ExtResource("4_eysva")
 [node name="Patrolling" type="Node" parent="FSM"]
 script = ExtResource("5_44ib6")
 
+[node name="Chase" type="Node" parent="FSM"]
+script = ExtResource("8_dm66m")
+
 [node name="Hit" type="Node" parent="FSM"]
 script = ExtResource("7_5r1qx")
 
@@ -58,3 +75,5 @@ script = ExtResource("6_7so4e")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

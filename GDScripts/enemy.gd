@@ -2,7 +2,7 @@ extends Node2D
 class_name Enemy
 
 @export var stats : EnemyStats
-@onready var area_2d: Area2D = $"../Area2D"
+@onready var area_2d: Area2D = $"../InnerArea"
 
 
 func _ready() -> void:

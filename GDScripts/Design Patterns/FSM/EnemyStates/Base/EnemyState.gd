@@ -2,7 +2,7 @@ extends MovementState
 class_name EnemyState
 
 @onready var e_fsm: EnemyFSM = $"../../FSM"
-@onready var area_2d: Area2D = $"../../Area2D"
+@onready var area_2d: Area2D = $"../../InnerArea"
 var initial_position : Vector2
 
 func _ready() -> void:
