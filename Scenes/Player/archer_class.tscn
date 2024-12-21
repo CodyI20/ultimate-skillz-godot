@@ -299,3 +299,10 @@ shape = SubResource("CircleShape2D_nbgqp")
 
 [node name="Stats" parent="." index="5"]
 stats = ExtResource("4_syvqu")
+
+[node name="TextureProgressBar" parent="." index="6"]
+offset_left = -18.0
+offset_top = -27.0
+offset_right = 0.0
+offset_bottom = -23.0
+scale = Vector2(2, 2)

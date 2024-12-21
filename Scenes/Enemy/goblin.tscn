@@ -24,6 +24,7 @@ radius = 24.1868
 [sub_resource type="Resource" id="Resource_aup37"]
 resource_local_to_scene = true
 script = ExtResource("2_nigu2")
+max_health = 75
 health = 75
 
 [node name="Goblin" instance=ExtResource("1_71ncb")]
@@ -32,7 +33,9 @@ scale = Vector2(1.5, 1.5)
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_eqvvl")
-animation = &"Idle"
+animation = &"Hit"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 4.66667)
@@ -50,3 +53,10 @@ shape = SubResource("CircleShape2D_l05yf")
 
 [node name="Stats" parent="." index="6"]
 stats = SubResource("Resource_aup37")
+
+[node name="TextureProgressBar" parent="." index="9"]
+offset_left = -16.0
+offset_top = -13.3333
+offset_right = 2.0
+offset_bottom = -9.33333
+scale = Vector2(1.75, 1.75)

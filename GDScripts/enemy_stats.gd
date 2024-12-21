@@ -1,4 +1,2 @@
-extends Resource
+extends Stats
 class_name EnemyStats
-
-@export var health := 100

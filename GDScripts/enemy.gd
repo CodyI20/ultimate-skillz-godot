@@ -1,7 +1,5 @@
-extends Node2D
+extends EntityStats
 class_name Enemy
-
-@export var stats : EnemyStats
 @onready var area_2d: Area2D = $"../InnerArea"
 
 
@@ -16,6 +14,7 @@ func handle_projectile_hit(area : Area2D, damage: int, source: Node2D) -> void:
 
 func _take_damage(damage: int) -> void:
 	stats.health -= damage
+	stats.health_changed.emit()
 	print_debug("The enemy has taken damage. New health : %s" % stats.health)
 	if stats.health < 0:
 		_die()

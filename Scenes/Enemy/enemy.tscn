@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=17 format=3 uid="uid://dtfveytixqslk"]
 
 [ext_resource type="Script" path="res://GDScripts/enemy_brain.gd" id="1_yn8l4"]
 [ext_resource type="Script" path="res://GDScripts/enemy_weapon.gd" id="2_60ajb"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/hit_state.gd" id="7_5r1qx"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/chase_state.gd" id="8_dm66m"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/attack_state.gd" id="9_sjq1s"]
+[ext_resource type="PackedScene" uid="uid://bgwucrm4vxcpd" path="res://Scenes/UI/HealthBar.tscn" id="12_o4drm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbbwq"]
 resource_local_to_scene = true
@@ -91,6 +92,9 @@ script = ExtResource("6_7so4e")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 40.0
 avoidance_enabled = true
+
+[node name="TextureProgressBar" parent="." node_paths=PackedStringArray("attached_stats_component") instance=ExtResource("12_o4drm")]
+attached_stats_component = NodePath("../Stats")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="area_entered" from="AttackArea" to="Weapon" method="_on_attack_area_area_entered"]

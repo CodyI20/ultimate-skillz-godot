@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://41fehitxf0b1"]
+[gd_scene load_steps=14 format=3 uid="uid://41fehitxf0b1"]
 
 [ext_resource type="Script" path="res://GDScripts/2d_player_movement.gd" id="1_ecqth"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/Base/PlayerFSM.gd" id="3_h2ban"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://GDScripts/weapon.gd" id="6_v4mj3"]
 [ext_resource type="PackedScene" uid="uid://d5n4sq0ejhjy" path="res://Scenes/Projectile/projectile.tscn" id="7_cmlw8"]
 [ext_resource type="Script" path="res://GDScripts/player.gd" id="9_pwsmk"]
+[ext_resource type="PackedScene" uid="uid://bgwucrm4vxcpd" path="res://Scenes/UI/HealthBar.tscn" id="11_12t8r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnhch"]
 resource_local_to_scene = true
@@ -62,3 +63,6 @@ debug_color = Color(0.812416, 0.216634, 0.852986, 0.42)
 
 [node name="Stats" type="Node2D" parent="." groups=["player"]]
 script = ExtResource("9_pwsmk")
+
+[node name="TextureProgressBar" parent="." node_paths=PackedStringArray("attached_stats_component") instance=ExtResource("11_12t8r")]
+attached_stats_component = NodePath("../Stats")

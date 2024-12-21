@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgwucrm4vxcpd"]
+
+[ext_resource type="Texture2D" uid="uid://c2e7llykj0mpm" path="res://Art/2D/UI/LifeBarMiniUnder.png" id="1_hlrqn"]
+[ext_resource type="Texture2D" uid="uid://chhdxv028pnek" path="res://Art/2D/UI/LifeBarMiniProgress.png" id="2_ihnhq"]
+[ext_resource type="Script" path="res://GDScripts/health_bar.gd" id="3_50yda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh5i5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+offset_left = -9.0
+offset_top = -45.0
+offset_right = 9.0
+offset_bottom = -41.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_hlrqn")
+texture_progress = ExtResource("2_ihnhq")
+script = ExtResource("3_50yda")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.444
+anchor_right = 0.5
+anchor_bottom = 0.444
+offset_left = -5.0
+offset_top = -2.776
+offset_right = 62.0
+offset_bottom = 34.224
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.558506, 0.385733, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_fh5i5")
+metadata/_edit_use_anchors_ = true
