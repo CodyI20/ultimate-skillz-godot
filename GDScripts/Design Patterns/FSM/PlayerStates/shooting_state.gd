@@ -11,5 +11,6 @@ func Exit():
 
 	
 func StateSwitchLogic():
+	super()
 	if Input.is_action_just_pressed("Right") or Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Down") or Input.is_action_just_pressed("Up"):
 		state_transition.emit(self, "Walking")

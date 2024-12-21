@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://dtfveytixqslk"]
 
-[ext_resource type="Script" path="res://GDScripts/enemy_brain.gd" id="1_yn8l4"]
-[ext_resource type="Script" path="res://GDScripts/enemy_weapon.gd" id="2_60ajb"]
-[ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
+[ext_resource type="Script" path="res://GDScripts/Enemy/enemy_brain.gd" id="1_yn8l4"]
+[ext_resource type="Script" path="res://GDScripts/Enemy/enemy_weapon.gd" id="2_60ajb"]
+[ext_resource type="Script" path="res://GDScripts/Enemy/enemy.gd" id="2_inx2t"]
 [ext_resource type="Resource" uid="uid://cyfp6ebl5rxnh" path="res://Resources/Enemy/enemy_stats.tres" id="3_n3xfa"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/Base/EnemyFSM.gd" id="3_ryjq3"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/idle_state.gd" id="4_eysva"]

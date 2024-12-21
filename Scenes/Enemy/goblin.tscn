@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
 [ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="2_eqvvl"]
-[ext_resource type="Script" path="res://GDScripts/enemy_stats.gd" id="2_nigu2"]
+[ext_resource type="Script" path="res://GDScripts/Stats/Enemy/enemy_stats.gd" id="2_nigu2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3f1gg"]
 resource_local_to_scene = true

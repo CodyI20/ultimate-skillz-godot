@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d5n4sq0ejhjy"]
 
-[ext_resource type="Script" path="res://GDScripts/projectile.gd" id="1_nw5td"]
+[ext_resource type="Script" path="res://GDScripts/Projectile/projectile.gd" id="1_nw5td"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d2hu"]
 resource_local_to_scene = true

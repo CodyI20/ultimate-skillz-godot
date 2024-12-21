@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://28j06wxvyric"]
+[gd_scene load_steps=43 format=3 uid="uid://28j06wxvyric"]
 
 [ext_resource type="PackedScene" uid="uid://41fehitxf0b1" path="res://Scenes/Player/player_base.tscn" id="1_kqd3m"]
 [ext_resource type="Texture2D" uid="uid://c3cod4hgyp3da" path="res://Art/2D/Fantasy/Class - Archer/spritesheet.png" id="2_vaxt5"]
 [ext_resource type="PackedScene" uid="uid://c637rpes2nay1" path="res://Scenes/Projectile/arcane_arrow.tscn" id="3_6yeei"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/roll_state.gd" id="3_cqk10"]
 [ext_resource type="Resource" uid="uid://bqb0fygtsjlpj" path="res://Resources/Player/player_stats.tres" id="4_syvqu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2464o"]
@@ -288,6 +289,9 @@ animation = &"Roll"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_lvvfp")
+
+[node name="Roll" type="Node" parent="FSM" index="4"]
+script = ExtResource("3_cqk10")
 
 [node name="Weapon" parent="WeaponPivot" index="0"]
 position = Vector2(35, 0)

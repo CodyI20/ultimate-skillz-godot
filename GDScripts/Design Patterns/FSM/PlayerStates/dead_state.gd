@@ -8,3 +8,15 @@ func Enter() -> void:
 	
 func Exit() -> void:
 	pass
+	
+func Update(delta: float) -> void:
+	pass
+	
+func Physics_Update(delta: float) -> void:
+	pass
+	
+func StateInput(event: InputEvent) -> void:
+	pass
+
+func StateSwitchLogic() -> void:
+	pass

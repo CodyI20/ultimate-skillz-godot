@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c2e7llykj0mpm" path="res://Art/2D/UI/LifeBarMiniUnder.png" id="1_hlrqn"]
 [ext_resource type="Texture2D" uid="uid://chhdxv028pnek" path="res://Art/2D/UI/LifeBarMiniProgress.png" id="2_ihnhq"]
-[ext_resource type="Script" path="res://GDScripts/health_bar.gd" id="3_50yda"]
+[ext_resource type="Script" path="res://GDScripts/UI/health_bar.gd" id="3_50yda"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh5i5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
