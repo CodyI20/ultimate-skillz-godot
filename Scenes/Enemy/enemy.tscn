@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=16 format=3 uid="uid://dtfveytixqslk"]
 
 [ext_resource type="Script" path="res://GDScripts/enemy_brain.gd" id="1_yn8l4"]
+[ext_resource type="Script" path="res://GDScripts/enemy_weapon.gd" id="2_60ajb"]
 [ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
 [ext_resource type="Resource" uid="uid://cyfp6ebl5rxnh" path="res://Resources/Enemy/enemy_stats.tres" id="3_n3xfa"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/Base/EnemyFSM.gd" id="3_ryjq3"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/dead_state.gd" id="6_7so4e"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/hit_state.gd" id="7_5r1qx"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/chase_state.gd" id="8_dm66m"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/attack_state.gd" id="9_sjq1s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbbwq"]
 resource_local_to_scene = true
@@ -23,6 +25,10 @@ radius = 156.003
 resource_local_to_scene = true
 radius = 19.3333
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_30we8"]
+resource_local_to_scene = true
+radius = 24.1868
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 32
 collision_mask = 5
@@ -33,7 +39,7 @@ script = ExtResource("1_yn8l4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
 shape = SubResource("CapsuleShape2D_qbbwq")
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 32
 collision_mask = 2
 
@@ -46,6 +52,15 @@ debug_color = Color(0, 0.64725, 0.216212, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InnerArea" groups=["enemy"]]
 shape = SubResource("CircleShape2D_p5rkk")
 debug_color = Color(0.810805, 0.236536, 0.830089, 0.42)
+
+[node name="AttackArea" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="Range" type="CollisionShape2D" parent="AttackArea" groups=["enemy"]]
+shape = SubResource("CircleShape2D_30we8")
+debug_color = Color(0.7488, 0.459143, 0.0866633, 0.42)
+
+[node name="Weapon" type="Node2D" parent="." groups=["enemy"]]
+script = ExtResource("2_60ajb")
 
 [node name="Stats" type="Node2D" parent="."]
 script = ExtResource("2_inx2t")
@@ -68,11 +83,16 @@ script = ExtResource("8_dm66m")
 script = ExtResource("7_5r1qx")
 
 [node name="Attacking" type="Node" parent="FSM"]
+script = ExtResource("9_sjq1s")
 
 [node name="Dead" type="Node" parent="FSM"]
 script = ExtResource("6_7so4e")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 40.0
 avoidance_enabled = true
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="area_entered" from="AttackArea" to="Weapon" method="_on_attack_area_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="Weapon" method="_on_attack_area_area_exited"]
+[connection signal="target_reached" from="NavigationAgent2D" to="FSM/Chase" method="_on_navigation_agent_2d_target_reached"]

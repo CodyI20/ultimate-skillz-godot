@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://70mw6vjqtfm8"]
+[gd_scene load_steps=9 format=3 uid="uid://70mw6vjqtfm8"]
 
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
 [ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="2_eqvvl"]
@@ -11,11 +11,15 @@ height = 18.6667
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxldc"]
 resource_local_to_scene = true
-radius = 156.003
+radius = 95.3427
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j1gck"]
 resource_local_to_scene = true
 radius = 19.3333
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l05yf"]
+resource_local_to_scene = true
+radius = 24.1868
 
 [sub_resource type="Resource" id="Resource_aup37"]
 resource_local_to_scene = true
@@ -41,5 +45,8 @@ shape = SubResource("CircleShape2D_xxldc")
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_j1gck")
 
-[node name="Stats" parent="." index="4"]
+[node name="Range" parent="AttackArea" index="0"]
+shape = SubResource("CircleShape2D_l05yf")
+
+[node name="Stats" parent="." index="6"]
 stats = SubResource("Resource_aup37")

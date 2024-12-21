@@ -8,6 +8,7 @@ func _ready() -> void:
 	Events.start_chasing_player.connect(_go_to_chase_state)
 	Events.enemy_died.connect(_go_to_dead_state)
 	Events.projectile_hit.connect(_go_to_hit_state)
+	Events.enemy_attacking.connect(_go_to_attack_state)
 
 func Enter():
 	#print_debug("Enemy entering idle state...")

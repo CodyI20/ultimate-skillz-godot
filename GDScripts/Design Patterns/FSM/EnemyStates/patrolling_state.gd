@@ -14,6 +14,7 @@ func _ready() -> void:
 	Events.start_chasing_player.connect(_go_to_chase_state)
 	Events.projectile_hit.connect(_go_to_hit_state)
 	Events.enemy_died.connect(_go_to_dead_state)
+	Events.enemy_attacking.connect(_go_to_attack_state)
 
 func Enter() -> void:
 	#print_debug("Enemy entering patrolling state...")
@@ -27,6 +28,10 @@ func Physics_Update(delta: float) -> void:
 	var destination = navigation_agent_2d.get_next_path_position()
 	var local_destination = destination - body.global_position
 	var direction = local_destination.normalized()
+	if direction.x < 0:
+		animator.flip_h = true
+	else:
+		animator.flip_h = false
 	
 	body.velocity = direction * speed
 	body.move_and_slide()

@@ -9,13 +9,18 @@ var initial_position : Vector2
 @onready var patrolling: EnemyPatrol = $"../Patrolling"
 @onready var chase: EnemyChase = $"../Chase"
 @onready var hit: EnemyHit = $"../Hit"
-@onready var attacking: Node = $"../Attacking"
+@onready var attacking: EnemyAttack = $"../Attacking"
 @onready var dead: EnemyDead = $"../Dead"
 
 
 func _ready() -> void:
 	initial_position = body.global_position
 	#print_debug("Setting the initial position to %s" % initial_position)
+	
+func _go_to_attack_state(input_enemy_brain : EnemyBrain) -> void:
+	if e_fsm.enemy_brain != input_enemy_brain:
+		return
+	state_transition.emit(self, attacking.name)
 	
 func _go_to_hit_state(area: Area2D, damage: int, source : Node2D) -> void:
 	if area != e_fsm.area_2d:
