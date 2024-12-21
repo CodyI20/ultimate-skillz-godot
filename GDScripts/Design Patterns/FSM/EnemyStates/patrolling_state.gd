@@ -9,8 +9,14 @@ var target_point := Vector2.ZERO
 const MAX_ITERATIONS := 1000
 var iteration := 0
 
+func _ready() -> void:
+	super()
+	Events.start_chasing_player.connect(_go_to_chase_state)
+	Events.projectile_hit.connect(_go_to_hit_state)
+	Events.enemy_died.connect(_go_to_dead_state)
+
 func Enter() -> void:
-	print_debug("Enemy entering patrolling state...")
+	#print_debug("Enemy entering patrolling state...")
 	iteration = 0
 	choose_patrolling_point()
 	await navigation_agent_2d.target_reached

@@ -10,7 +10,7 @@ func _ready() -> void:
 		printerr("ENEMY STATS ARE MISSING ON %s" % self.name)
 	Events.projectile_hit.connect(handle_projectile_hit)
 	
-func handle_projectile_hit(area : Area2D, damage: int) -> void:
+func handle_projectile_hit(area : Area2D, damage: int, source: Node2D) -> void:
 	if area == area_2d:
 		_take_damage(damage)
 

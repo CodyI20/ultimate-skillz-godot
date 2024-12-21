@@ -280,7 +280,7 @@ size = Vector2(17, 30)
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_s7omt")
-animation = &"Death"
+animation = &"Roll"
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_vmpx4")

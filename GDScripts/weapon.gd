@@ -19,8 +19,9 @@ func _shoot() -> void:
 	animator.play("Shoot")
 	await animator.animation_finished
 	# LOGIC FOR SHOOTING
-	var new_projectile = projectile.instantiate()
+	var new_projectile = projectile.instantiate() as Projectile
 	new_projectile.global_position = global_position
+	new_projectile.projectile_source = self
 	match fsm.last_orientation:
 		#fsm.PLAYER_ORIENTATION.UP:
 			#new_projectile.rotation_degrees = -90

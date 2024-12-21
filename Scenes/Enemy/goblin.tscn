@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://70mw6vjqtfm8"]
+[gd_scene load_steps=6 format=3 uid="uid://70mw6vjqtfm8"]
 
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
+[ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="2_eqvvl"]
 [ext_resource type="Script" path="res://GDScripts/enemy_stats.gd" id="2_nigu2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ea3nk"]
@@ -16,11 +17,12 @@ scale = Vector2(1.5, 1.5)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.7, 0.7)
-animation = &"Run"
+sprite_frames = ExtResource("2_eqvvl")
+animation = &"Death"
 
 [node name="Area2D#CollisionShape2D" type="CollisionShape2D" parent="." index="1" groups=["enemy"]]
 position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_ea3nk")
 
-[node name="Stats" parent="." index="4"]
+[node name="Stats" parent="." index="5"]
 stats = SubResource("Resource_aup37")

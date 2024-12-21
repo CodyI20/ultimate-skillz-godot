@@ -5,8 +5,13 @@ class_name EnemyChase
 var target : Node2D = null
 @export var speed := 150.0
 
+func _ready() -> void:
+	super()
+	Events.enemy_died.connect(_go_to_dead_state)
+	Events.projectile_hit.connect(_go_to_hit_state)
+
 func Enter() -> void:
-	print_debug("Enemy entering chase state...")
+	#print_debug("Enemy entering chase state...")
 	animator.play("Run")
 	
 func Exit() -> void:

@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=13 format=3 uid="uid://dtfveytixqslk"]
 
-[ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="1_7sx7y"]
 [ext_resource type="Script" path="res://GDScripts/enemy_brain.gd" id="1_yn8l4"]
 [ext_resource type="Script" path="res://GDScripts/enemy.gd" id="2_inx2t"]
 [ext_resource type="Resource" uid="uid://cyfp6ebl5rxnh" path="res://Resources/Enemy/enemy_stats.tres" id="3_n3xfa"]
@@ -26,8 +25,6 @@ collision_mask = 4
 script = ExtResource("1_yn8l4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_7sx7y")
-animation = &"Hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
 position = Vector2(-0.5, 8)
