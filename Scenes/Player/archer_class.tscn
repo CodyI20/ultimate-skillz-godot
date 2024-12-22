@@ -1,10 +1,17 @@
-[gd_scene load_steps=43 format=3 uid="uid://28j06wxvyric"]
+[gd_scene load_steps=45 format=3 uid="uid://28j06wxvyric"]
 
 [ext_resource type="PackedScene" uid="uid://41fehitxf0b1" path="res://Scenes/Player/player_base.tscn" id="1_kqd3m"]
 [ext_resource type="Texture2D" uid="uid://c3cod4hgyp3da" path="res://Art/2D/Fantasy/Class - Archer/spritesheet.png" id="2_vaxt5"]
+[ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="2_y0afw"]
 [ext_resource type="PackedScene" uid="uid://c637rpes2nay1" path="res://Scenes/Projectile/arcane_arrow.tscn" id="3_6yeei"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/roll_state.gd" id="3_cqk10"]
 [ext_resource type="Resource" uid="uid://bqb0fygtsjlpj" path="res://Resources/Player/player_stats.tres" id="4_syvqu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67dq8"]
+resource_local_to_scene = true
+shader = ExtResource("2_y0afw")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2464o"]
 atlas = ExtResource("2_vaxt5")
@@ -272,10 +279,8 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lvvfp"]
-resource_local_to_scene = true
-radius = 3.0
-height = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_xkg40"]
+radius = 3.0005
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nbgqp"]
 resource_local_to_scene = true
@@ -284,11 +289,13 @@ radius = 20.5
 [node name="ArcherClass" instance=ExtResource("1_kqd3m")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_67dq8")
 sprite_frames = SubResource("SpriteFrames_s7omt")
-animation = &"Roll"
+animation = &"Idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource("CapsuleShape2D_lvvfp")
+position = Vector2(0, 14.11)
+shape = SubResource("CircleShape2D_xkg40")
 
 [node name="Roll" type="Node" parent="FSM" index="4"]
 script = ExtResource("3_cqk10")

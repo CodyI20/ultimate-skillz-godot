@@ -1,7 +1,7 @@
 extends PlayerState
 class_name PlayerWalk
 
-const SPEED := 300.0
+@export var SPEED := 300.0
 
 const direction_input_map = {
 	#movement_fsm.PLAYER_ORIENTATION.UP: "Up",

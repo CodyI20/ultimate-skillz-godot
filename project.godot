@@ -41,6 +41,7 @@ folder_colors={
 
 player=""
 enemy=""
+enemy_parent=""
 
 [input]
 

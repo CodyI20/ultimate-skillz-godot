@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgwucrm4vxcpd"]
+[gd_scene load_steps=6 format=3 uid="uid://bgwucrm4vxcpd"]
 
 [ext_resource type="Texture2D" uid="uid://c2e7llykj0mpm" path="res://Art/2D/UI/LifeBarMiniUnder.png" id="1_hlrqn"]
 [ext_resource type="Texture2D" uid="uid://chhdxv028pnek" path="res://Art/2D/UI/LifeBarMiniProgress.png" id="2_ihnhq"]
 [ext_resource type="Script" path="res://GDScripts/UI/health_bar.gd" id="3_50yda"]
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh5i5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkh6s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="TextureProgressBar" type="TextureProgressBar"]
@@ -37,4 +39,5 @@ theme_override_colors/font_outline_color = Color(0, 0.558506, 0.385733, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_fh5i5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qkh6s")
 metadata/_edit_use_anchors_ = true

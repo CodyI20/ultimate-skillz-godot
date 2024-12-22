@@ -11,6 +11,7 @@ func _input(event: InputEvent) -> void:
 
 func _take_damage(damage: int) -> void:
 	stats.health -= damage
+	Events.player_took_damage.emit(damage)
 	stats.health_changed.emit()
 	print_debug("You have taken damage. New health : %s" % stats.health)
 	if stats.health <= 0:

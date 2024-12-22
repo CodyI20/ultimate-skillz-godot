@@ -18,7 +18,8 @@ func Enter() -> void:
 func Physics_Update(delta: float) -> void:
 	super(delta)
 	body.velocity = roll_direction * roll_speed
-# Making sure that no state swaps can trigger while rolling
+	
+# Disable any state transitions while rolling
 func StateInput(event: InputEvent) -> void:
 	pass
 	

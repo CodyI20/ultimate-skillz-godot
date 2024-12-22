@@ -6,6 +6,7 @@ class_name Enemy
 func _ready() -> void:
 	if stats == null:
 		printerr("ENEMY STATS ARE MISSING ON %s" % self.name)
+	Events.enemy_spawn.emit(self)
 	Events.projectile_hit.connect(handle_projectile_hit)
 	
 func handle_projectile_hit(area : Area2D, damage: int, source: Node2D) -> void:

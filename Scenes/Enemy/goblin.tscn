@@ -4,10 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="2_eqvvl"]
 [ext_resource type="Script" path="res://GDScripts/Stats/Enemy/enemy_stats.gd" id="2_nigu2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3f1gg"]
-resource_local_to_scene = true
-radius = 7.33333
-height = 18.6667
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfb4t"]
+radius = 4.05518
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxldc"]
 resource_local_to_scene = true
@@ -33,13 +31,11 @@ scale = Vector2(1.5, 1.5)
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_eqvvl")
-animation = &"Hit"
-frame = 3
-frame_progress = 1.0
+animation = &"Run"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 4.66667)
-shape = SubResource("CapsuleShape2D_3f1gg")
+position = Vector2(0, 11.3333)
+shape = SubResource("CircleShape2D_hfb4t")
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource("CircleShape2D_xxldc")
