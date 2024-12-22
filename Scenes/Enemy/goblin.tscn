@@ -1,8 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://70mw6vjqtfm8"]
+[gd_scene load_steps=31 format=3 uid="uid://70mw6vjqtfm8"]
 
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
 [ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="2_eqvvl"]
+[ext_resource type="AudioStream" uid="uid://c8bhl23dqde72" path="res://Art/Audio/SFX/Death/Enemy/Goblin/GoblinMale_Death02.ogg" id="2_koyod"]
 [ext_resource type="Script" path="res://GDScripts/Stats/Enemy/enemy_stats.gd" id="2_nigu2"]
+[ext_resource type="AudioStream" uid="uid://xkv4tj2lntbq" path="res://Art/Audio/SFX/Wound/Enemy/Goblin/GoblinMale_Wound01.ogg" id="3_63gob"]
+[ext_resource type="Script" path="res://GDScripts/Enemy/goblin_enemy.gd" id="3_351ab"]
+[ext_resource type="AudioStream" uid="uid://bj41v07da8eld" path="res://Art/Audio/SFX/Death/Enemy/Goblin/GoblinMale_Death03.ogg" id="3_h3b72"]
+[ext_resource type="AudioStream" uid="uid://bomguad7n3f6r" path="res://Art/Audio/SFX/Wound/Enemy/Goblin/GoblinMale_Wound07.ogg" id="4_m4mau"]
+[ext_resource type="AudioStream" uid="uid://bs3pa4orhlxqj" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtA.ogg" id="4_okufq"]
+[ext_resource type="AudioStream" uid="uid://ble4fyq7ccl8y" path="res://Art/Audio/SFX/Death/Enemy/Goblin/GoblinMale_Death04.ogg" id="4_pb7r1"]
+[ext_resource type="AudioStream" uid="uid://bsk1fy6nb07eh" path="res://Art/Audio/SFX/Aggro/Goblin/mGnollAggro1.ogg" id="4_rkonw"]
+[ext_resource type="AudioStream" uid="uid://buxgrd2ffbhft" path="res://Art/Audio/SFX/Wound/Enemy/Goblin/GoblinMale_Wound10.ogg" id="5_3c1d5"]
+[ext_resource type="AudioStream" uid="uid://dmqtn1p8fj61g" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtC.ogg" id="5_pj4fr"]
+[ext_resource type="AudioStream" uid="uid://fphppf4d4mav" path="res://Art/Audio/SFX/Aggro/Goblin/MON_GnollV2_Aggro_01.ogg" id="5_wx0v5"]
+[ext_resource type="AudioStream" uid="uid://c8jnrwwy8ny5y" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtD.ogg" id="6_7bpnd"]
+[ext_resource type="AudioStream" uid="uid://c08aq3k6s3bl7" path="res://Art/Audio/SFX/Aggro/Goblin/MON_GnollV2_Aggro_02.ogg" id="6_d8bld"]
+[ext_resource type="AudioStream" uid="uid://cncvonabaysxa" path="res://Art/Audio/SFX/Wound/Enemy/Goblin/GoblinMale_WoundCrit01.ogg" id="6_qs1v0"]
+[ext_resource type="AudioStream" uid="uid://co8vaxj8omabb" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtE.ogg" id="7_rl7lt"]
+[ext_resource type="AudioStream" uid="uid://bgjegl84kyec1" path="res://Art/Audio/SFX/Attack/Enemy/Goblin/Gilgoblin_Attack_03.ogg" id="7_sklrw"]
+[ext_resource type="AudioStream" uid="uid://cpac8s6mlckf2" path="res://Art/Audio/SFX/Attack/Enemy/Goblin/Gilgoblin_Attack_10.ogg" id="8_3i8vo"]
+[ext_resource type="AudioStream" uid="uid://d0i0nlmhu1uio" path="res://Art/Audio/SFX/Attack/Enemy/Goblin/GoblinMale_Attack04.ogg" id="9_0csb1"]
+[ext_resource type="AudioStream" uid="uid://c2grxjrcva7hj" path="res://Art/Audio/SFX/Attack/Enemy/Goblin/GoblinMale_Attack08.ogg" id="10_4ce1h"]
+[ext_resource type="AudioStream" uid="uid://4758w5mkapsg" path="res://Art/Audio/SFX/Attack/Enemy/Goblin/GoblinMale_Attack10.ogg" id="11_ncs7v"]
+[ext_resource type="AudioStream" uid="uid://cyvmwfv5or2u6" path="res://Art/Audio/SFX/Attack/Enemy/Goblin/GoblinMale_AttackCrit03.ogg" id="12_ncked"]
+[ext_resource type="AudioStream" uid="uid://b5da35u3f6oq3" path="res://Art/Audio/SFX/Attack/Enemy/Goblin/GoblinMale_AttackCrit04.ogg" id="13_7axpa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hfb4t"]
 radius = 4.05518
@@ -19,7 +41,7 @@ radius = 19.3333
 resource_local_to_scene = true
 radius = 24.1868
 
-[sub_resource type="Resource" id="Resource_aup37"]
+[sub_resource type="Resource" id="Resource_degau"]
 resource_local_to_scene = true
 script = ExtResource("2_nigu2")
 max_health = 75
@@ -28,12 +50,21 @@ health = 75
 [node name="Goblin" instance=ExtResource("1_71ncb")]
 scale = Vector2(1.5, 1.5)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="Sounds" parent="." index="0"]
+death_sound = Array[AudioStream]([ExtResource("2_koyod"), ExtResource("3_h3b72"), ExtResource("4_pb7r1")])
+hit_sound = Array[AudioStream]([ExtResource("3_63gob"), ExtResource("4_m4mau"), ExtResource("5_3c1d5"), ExtResource("6_qs1v0")])
+attack_sound = Array[AudioStream]([ExtResource("7_sklrw"), ExtResource("8_3i8vo"), ExtResource("9_0csb1"), ExtResource("10_4ce1h"), ExtResource("11_ncs7v"), ExtResource("12_ncked"), ExtResource("13_7axpa")])
+aggro_sound = Array[AudioStream]([ExtResource("4_rkonw"), ExtResource("5_wx0v5"), ExtResource("6_d8bld")])
+
+[node name="WalkSounds" parent="." index="1"]
+walk_sound = Array[AudioStream]([ExtResource("4_okufq"), ExtResource("5_pj4fr"), ExtResource("6_7bpnd"), ExtResource("7_rl7lt")])
+
+[node name="AnimatedSprite2D" parent="." index="2"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_eqvvl")
 animation = &"Run"
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(0, 11.3333)
 shape = SubResource("CircleShape2D_hfb4t")
 
@@ -47,10 +78,11 @@ shape = SubResource("CircleShape2D_j1gck")
 [node name="Range" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_l05yf")
 
-[node name="Stats" parent="." index="6"]
-stats = SubResource("Resource_aup37")
+[node name="Stats" parent="." index="8"]
+script = ExtResource("3_351ab")
+stats = SubResource("Resource_degau")
 
-[node name="TextureProgressBar" parent="." index="9"]
+[node name="TextureProgressBar" parent="." index="11"]
 offset_left = -16.0
 offset_top = -13.3333
 offset_right = 2.0

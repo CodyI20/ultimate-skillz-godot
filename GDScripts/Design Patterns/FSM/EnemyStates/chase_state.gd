@@ -15,18 +15,26 @@ func _ready() -> void:
 func Enter() -> void:
 	if is_dead:
 		state_transition.emit(self, dead.name)
+	e_fsm.enemy_brain.set_aggro_true()
 	if close_enough == false:
+		e_fsm.enemy_brain.walking.emit()
 		animator.play("Run")
 	else:
+		e_fsm.enemy_brain.walking_stopped.emit()
 		animator.play("Idle")
+		
+func Exit() -> void:
+	e_fsm.enemy_brain.walking_stopped.emit()
 	
 func Physics_Update(delta: float) -> void:
 	super(delta)
 	if close_enough == true:
 		if body.global_position.distance_to(target.global_position) >= navigation_agent_2d.target_desired_distance:
 			close_enough = false
+			e_fsm.enemy_brain.walking.emit()
 			animator.play("Run")
 		else:
+			e_fsm.enemy_brain.walking_stopped.emit()
 			animator.play("Idle")
 			return
 	if target != null:
@@ -48,4 +56,4 @@ func _on_navigation_agent_2d_target_reached() -> void:
 		return
 	close_enough = true
 	animator.play("Idle")
-	print_debug("REACHED")
+	#print_debug("REACHED")

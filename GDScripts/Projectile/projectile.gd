@@ -18,12 +18,14 @@ func _ready() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy"):
-		print_debug("ENTERED ENEMY AREA>>>")
+		Events.projectile_hit_something.emit()
+		#print_debug("ENTERED ENEMY AREA>>>")
 		#print_debug("Projectile hit an enemy...")
 		Events.projectile_hit.emit(area, projectile_damage, projectile_source)
 		queue_free()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	Events.projectile_hit_something.emit()
 	area_2d.queue_free()
 	set_deferred("freeze", true)

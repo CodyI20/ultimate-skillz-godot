@@ -6,9 +6,6 @@ class_name EnemyPatrol
 @export var patrolling_range := 200.0
 var target_point := Vector2.ZERO
 
-const MAX_ITERATIONS := 1000
-var iteration := 0
-
 func _ready() -> void:
 	super()
 	Events.start_chasing_player.connect(_go_to_chase_state)
@@ -18,26 +15,28 @@ func _ready() -> void:
 
 func Enter() -> void:
 	#print_debug("Enemy entering patrolling state...")
-	iteration = 0
 	choose_patrolling_point()
+	e_fsm.enemy_brain.walking.emit()
 	await navigation_agent_2d.target_reached
 	state_transition.emit(self, "Idle")
 	
 func Physics_Update(delta: float) -> void:
 	super(delta)
 	var destination = navigation_agent_2d.get_next_path_position()
+	var distance_to_destination = body.global_position.distance_to(destination)
+	
+	if distance_to_destination < 5.0:  # Threshold to prevent jitter
+		state_transition.emit(self, "Idle")
+		return
+	
 	var local_destination = destination - body.global_position
 	var direction = local_destination.normalized()
-	if direction.x < 0:
-		animator.flip_h = true
-	else:
-		animator.flip_h = false
 	
+	animator.flip_h = direction.x < 0
 	body.velocity = direction * speed
 	body.move_and_slide()
 	
 func choose_patrolling_point() -> void:
-	iteration += 1
 	# Generate two random angles for the points
 	var angle1 = randf() * TAU
 
@@ -46,8 +45,6 @@ func choose_patrolling_point() -> void:
 		cos(angle1) * patrolling_range,
 		sin(angle1) * patrolling_range
 	)
-	while iteration < MAX_ITERATIONS and navigation_agent_2d.is_target_reachable() == false:
-		choose_patrolling_point()
 	print_debug("Destination set at %s" % target_point)
 	navigation_agent_2d.set_target_position(target_point)
 	animator.play("Run")

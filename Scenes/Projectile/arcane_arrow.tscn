@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c637rpes2nay1"]
+[gd_scene load_steps=6 format=3 uid="uid://c637rpes2nay1"]
 
 [ext_resource type="PackedScene" uid="uid://d5n4sq0ejhjy" path="res://Scenes/Projectile/projectile.tscn" id="1_vkipi"]
+[ext_resource type="Script" path="res://GDScripts/Projectile/arcane_arrow.gd" id="2_3g241"]
 [ext_resource type="Texture2D" uid="uid://dnrul2q2gc1uk" path="res://Art/2D/Fantasy/Class - Archer/projectile.png" id="2_gjskl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xqchq"]
@@ -12,6 +13,7 @@ resource_local_to_scene = true
 size = Vector2(26, 6)
 
 [node name="ArcaneArrow" instance=ExtResource("1_vkipi")]
+script = ExtResource("2_3g241")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.7, 0.7)

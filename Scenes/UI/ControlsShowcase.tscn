@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cij8qac2lxhyl"]
+
+[ext_resource type="Script" path="res://GDScripts/UI/visibility_button.gd" id="1_6etty"]
+[ext_resource type="Script" path="res://GDScripts/UI/controls_showcase.gd" id="1_f64fj"]
+
+[node name="ControlsShowcase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_f64fj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -457.0
+offset_top = 2.0
+offset_right = -70.0
+offset_bottom = 271.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="VisibilityButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_top = 2.0
+offset_bottom = 51.0
+grow_horizontal = 0
+script = ExtResource("1_6etty")

@@ -1,14 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5wiw4aqfwwhv"]
+[gd_scene load_steps=12 format=3 uid="uid://c5wiw4aqfwwhv"]
 
 [ext_resource type="Script" path="res://GDScripts/Global/audio_manager.gd" id="1_oy5s5"]
-[ext_resource type="AudioStream" uid="uid://nhdrnkle26xm" path="res://Art/Audio/SFX/Background_music.mp3" id="2_kdquy"]
+[ext_resource type="AudioStream" uid="uid://daopng2o0cd4q" path="res://Art/Audio/Music/MUS_100_Ohnahran_Wind_Hero.mp3" id="2_lh722"]
+[ext_resource type="AudioStream" uid="uid://t4xkwieq81i8" path="res://Art/Audio/SFX/ArrowHitA.ogg" id="3_t0unc"]
+[ext_resource type="AudioStream" uid="uid://bk2dtsppnfj3x" path="res://Art/Audio/SFX/FX_Adventures_Bow_Arrow_Shoot_Cast_01.ogg" id="4_fcb06"]
+[ext_resource type="AudioStream" uid="uid://s4w5un3pwsax" path="res://Art/Audio/SFX/SPELL_HU_BowPullBack_01.ogg" id="5_gpnq4"]
+[ext_resource type="AudioStream" uid="uid://dyoc8ydv2f8w8" path="res://Art/Audio/SFX/SPELL_RottenStench_Impact_07.ogg" id="7_taobp"]
+[ext_resource type="AudioStream" uid="uid://eke1lv6y4s8w" path="res://Art/Audio/Dialogue/GameStart/VO_110_Xalatath_Blade_of_the_Black_Empire_25_F.ogg" id="9_vqaa3"]
+[ext_resource type="AudioStream" uid="uid://by8hafiqex4ay" path="res://Art/Audio/Dialogue/GameStart/VO_110_Xalatath_Blade_of_the_Black_Empire_45_F.ogg" id="10_7fnk8"]
+[ext_resource type="AudioStream" uid="uid://bm04npjgiutss" path="res://Art/Audio/Dialogue/Defeat.ogg" id="10_lskck"]
+[ext_resource type="AudioStream" uid="uid://j0cs1tsimv1w" path="res://Art/Audio/Dialogue/Victory.ogg" id="11_dgigu"]
+[ext_resource type="AudioStream" uid="uid://bpatnmftpnmoq" path="res://Art/Audio/Dialogue/GameStart/VO_815_Xalatath_Blade_of_the_Black_Empire_03_F.ogg" id="11_f0um2"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_oy5s5")
 
-[node name="BACKGROUND_MUSIC" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_kdquy")
+[node name="Music" type="Node" parent="."]
+
+[node name="BACKGROUND_MUSIC" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_lh722")
+volume_db = -2.0
 bus = &"Music"
 
 [node name="SFX" type="Node" parent="."]
+
+[node name="ArrowHIT" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_t0unc")
+bus = &"SFX"
+
+[node name="ArrowRelease" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_fcb06")
+bus = &"SFX"
+
+[node name="BowPullback" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_gpnq4")
+bus = &"SFX"
+
+[node name="Dissolve" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_taobp")
+bus = &"SFX"
+
+[node name="Dialogue" type="Node" parent="."]
+
+[node name="Defeat" type="AudioStreamPlayer" parent="Dialogue"]
+stream = ExtResource("10_lskck")
+bus = &"Dialogue"
+
+[node name="Victory" type="AudioStreamPlayer" parent="Dialogue"]
+stream = ExtResource("11_dgigu")
+bus = &"Dialogue"
+
+[node name="GameStarted" type="Node" parent="Dialogue"]
+
+[node name="Vo110XalatathBladeOfTheBlackEmpire25F" type="AudioStreamPlayer" parent="Dialogue/GameStarted"]
+stream = ExtResource("9_vqaa3")
+bus = &"Dialogue"
+
+[node name="Vo110XalatathBladeOfTheBlackEmpire45F" type="AudioStreamPlayer" parent="Dialogue/GameStarted"]
+stream = ExtResource("10_7fnk8")
+bus = &"Dialogue"
+
+[node name="Vo815XalatathBladeOfTheBlackEmpire03F" type="AudioStreamPlayer" parent="Dialogue/GameStarted"]
+stream = ExtResource("11_f0um2")
+bus = &"Dialogue"

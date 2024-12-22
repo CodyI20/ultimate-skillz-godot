@@ -1,11 +1,22 @@
-[gd_scene load_steps=45 format=3 uid="uid://28j06wxvyric"]
+[gd_scene load_steps=56 format=3 uid="uid://28j06wxvyric"]
 
 [ext_resource type="PackedScene" uid="uid://41fehitxf0b1" path="res://Scenes/Player/player_base.tscn" id="1_kqd3m"]
+[ext_resource type="AudioStream" uid="uid://bo24c12pvw3w5" path="res://Art/Audio/SFX/Death/Player/MON_HumanFemale_NPC01_Death_03.ogg" id="2_eet7t"]
 [ext_resource type="Texture2D" uid="uid://c3cod4hgyp3da" path="res://Art/2D/Fantasy/Class - Archer/spritesheet.png" id="2_vaxt5"]
 [ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="2_y0afw"]
 [ext_resource type="PackedScene" uid="uid://c637rpes2nay1" path="res://Scenes/Projectile/arcane_arrow.tscn" id="3_6yeei"]
+[ext_resource type="AudioStream" uid="uid://bs3pa4orhlxqj" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtA.ogg" id="3_7rgp8"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/roll_state.gd" id="3_cqk10"]
+[ext_resource type="AudioStream" uid="uid://drc3d3wsorgws" path="res://Art/Audio/SFX/Death/Player/MON_HumanFemale_NPC01_Death_04.ogg" id="3_d3h6d"]
+[ext_resource type="AudioStream" uid="uid://ca6cph5vg2d3h" path="res://Art/Audio/SFX/Wound/Player/Archer/HumanFeamleMainWoundB.ogg" id="3_d23fl"]
+[ext_resource type="AudioStream" uid="uid://b11oim36v28gd" path="res://Art/Audio/SFX/Wound/Player/Archer/HumanFeamleMainWoundC.ogg" id="4_05oip"]
+[ext_resource type="AudioStream" uid="uid://dmqtn1p8fj61g" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtC.ogg" id="4_pfn6r"]
 [ext_resource type="Resource" uid="uid://bqb0fygtsjlpj" path="res://Resources/Player/player_stats.tres" id="4_syvqu"]
+[ext_resource type="AudioStream" uid="uid://cxchiu68bdva7" path="res://Art/Audio/SFX/Death/Player/MON_HumanFemale_NPC01_Death_05.ogg" id="4_wijwh"]
+[ext_resource type="AudioStream" uid="uid://c8jnrwwy8ny5y" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtD.ogg" id="5_gjjea"]
+[ext_resource type="AudioStream" uid="uid://cjhyj3h068vb1" path="res://Art/Audio/SFX/Wound/Player/Archer/HumanFeamleMainWoundCritA.ogg" id="5_uoijh"]
+[ext_resource type="AudioStream" uid="uid://dpe3h15no38nj" path="res://Art/Audio/SFX/Wound/Player/Archer/VO_PCHumanFemaleMain_Wound_03.ogg" id="6_o6jln"]
+[ext_resource type="AudioStream" uid="uid://co8vaxj8omabb" path="res://Art/Audio/SFX/Footsteps/mFootMediumLargeDirtE.ogg" id="6_t2s3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67dq8"]
 resource_local_to_scene = true
@@ -288,17 +299,25 @@ radius = 20.5
 
 [node name="ArcherClass" instance=ExtResource("1_kqd3m")]
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="Sounds" parent="." index="0"]
+death_sound = Array[AudioStream]([ExtResource("2_eet7t"), ExtResource("3_d3h6d"), ExtResource("4_wijwh")])
+hit_sound = Array[AudioStream]([ExtResource("3_d23fl"), ExtResource("4_05oip"), ExtResource("5_uoijh"), ExtResource("6_o6jln")])
+
+[node name="Footsteps" parent="." index="1"]
+walk_sound = Array[AudioStream]([ExtResource("3_7rgp8"), ExtResource("4_pfn6r"), ExtResource("5_gjjea"), ExtResource("6_t2s3j")])
+
+[node name="AnimatedSprite2D" parent="." index="2"]
 material = SubResource("ShaderMaterial_67dq8")
 sprite_frames = SubResource("SpriteFrames_s7omt")
 animation = &"Idle"
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(0, 14.11)
 shape = SubResource("CircleShape2D_xkg40")
 
 [node name="Roll" type="Node" parent="FSM" index="4"]
 script = ExtResource("3_cqk10")
+roll_speed = 400.0
 
 [node name="Weapon" parent="WeaponPivot" index="0"]
 position = Vector2(35, 0)
@@ -308,10 +327,10 @@ projectile = ExtResource("3_6yeei")
 position = Vector2(-0.5, 0)
 shape = SubResource("CircleShape2D_nbgqp")
 
-[node name="Stats" parent="." index="5"]
+[node name="Stats" parent="." index="7"]
 stats = ExtResource("4_syvqu")
 
-[node name="TextureProgressBar" parent="." index="6"]
+[node name="TextureProgressBar" parent="." index="8"]
 offset_left = -18.0
 offset_top = -27.0
 offset_right = 0.0

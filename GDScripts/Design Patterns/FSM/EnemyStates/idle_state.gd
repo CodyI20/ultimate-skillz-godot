@@ -13,6 +13,7 @@ func _ready() -> void:
 func Enter():
 	#print_debug("Enemy entering idle state...")
 	animator.play("Idle")
+	e_fsm.enemy_brain.walking_stopped.emit()
 	await get_tree().create_timer(get_random_delay()).timeout
 	state_transition.emit(self, "Patrolling")
 	match fsm.last_orientation:

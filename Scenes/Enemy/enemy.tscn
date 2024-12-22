@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtfveytixqslk"]
+[gd_scene load_steps=19 format=3 uid="uid://dtfveytixqslk"]
 
 [ext_resource type="Script" path="res://GDScripts/Enemy/enemy_brain.gd" id="1_yn8l4"]
 [ext_resource type="Script" path="res://GDScripts/Enemy/enemy_weapon.gd" id="2_60ajb"]
 [ext_resource type="Script" path="res://GDScripts/Enemy/enemy.gd" id="2_inx2t"]
+[ext_resource type="Script" path="res://GDScripts/Enemy/enemy_audio_stream_player_2d.gd" id="2_yawnd"]
+[ext_resource type="Script" path="res://GDScripts/Enemy/walk_sounds.gd" id="3_b4si5"]
 [ext_resource type="Resource" uid="uid://cyfp6ebl5rxnh" path="res://Resources/Enemy/enemy_stats.tres" id="3_n3xfa"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/Base/EnemyFSM.gd" id="3_ryjq3"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/EnemyStates/idle_state.gd" id="4_eysva"]
@@ -28,12 +30,23 @@ radius = 19.3333
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_30we8"]
 resource_local_to_scene = true
-radius = 24.1868
+radius = 29.0172
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy", "enemy_parent"]]
 collision_layer = 32
 collision_mask = 5
 script = ExtResource("1_yn8l4")
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+max_polyphony = 10
+bus = &"SFX"
+script = ExtResource("2_yawnd")
+
+[node name="WalkSounds" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+bus = &"SFX"
+script = ExtResource("3_b4si5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
@@ -92,7 +105,6 @@ script = ExtResource("9_sjq1s")
 script = ExtResource("6_7so4e")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 30.0
 target_desired_distance = 40.0
 avoidance_enabled = true
 radius = 20.0

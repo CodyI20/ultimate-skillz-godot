@@ -10,6 +10,12 @@ const direction_input_map = {
 	fsm.ORIENTATION.RIGHT: "Right"
 }
 
+func Enter() -> void:
+	player_fsm.player_brain.walking.emit()
+
+func Exit() -> void:
+	player_fsm.player_brain.walking_stopped.emit()
+
 func Physics_Update(_delta: float) -> void:
 	_handle_movement()
 	_update_animation()

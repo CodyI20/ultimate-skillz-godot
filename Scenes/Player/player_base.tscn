@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://41fehitxf0b1"]
+[gd_scene load_steps=19 format=3 uid="uid://41fehitxf0b1"]
 
 [ext_resource type="Script" path="res://GDScripts/Player/2d_player_movement.gd" id="1_ecqth"]
 [ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="2_4irl0"]
+[ext_resource type="Script" path="res://GDScripts/Player/player_audio_stream_player_2d.gd" id="2_vi2c3"]
 [ext_resource type="Script" path="res://GDScripts/Player/player_sprite.gd" id="3_0w50q"]
+[ext_resource type="Script" path="res://GDScripts/Player/player_footsteps.gd" id="3_4k57s"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/Base/PlayerFSM.gd" id="3_h2ban"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/idle_state.gd" id="3_vnqth"]
 [ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/walking_state.gd" id="4_mibcl"]
@@ -33,6 +35,15 @@ collision_layer = 2
 collision_mask = 65
 script = ExtResource("1_ecqth")
 
+[node name="Sounds" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 10
+bus = &"SFX"
+script = ExtResource("2_vi2c3")
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+script = ExtResource("3_4k57s")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["player"]]
 material = SubResource("ShaderMaterial_ipndc")
 script = ExtResource("3_0w50q")
@@ -50,7 +61,7 @@ script = ExtResource("3_vnqth")
 
 [node name="Walking" type="Node" parent="FSM"]
 script = ExtResource("4_mibcl")
-SPEED = 235.0
+SPEED = 200.0
 
 [node name="Shooting" type="Node" parent="FSM"]
 script = ExtResource("5_yg0vh")

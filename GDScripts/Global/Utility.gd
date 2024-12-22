@@ -26,7 +26,6 @@ func toggle_options_menu(is_active : bool) -> void:
 	Events.options_menu_toggle.emit(is_active)
 
 func reload_scene() -> void:
-	Events.game_over.emit()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

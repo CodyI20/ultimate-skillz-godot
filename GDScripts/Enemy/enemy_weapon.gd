@@ -9,6 +9,8 @@ class_name EnemyWeapon
 var can_try_attack := true
 var attacking := false
 
+signal attack
+
 func _ready() -> void:
 	Events.enemy_attack_damage_dealer.connect(deal_damage)
 	
@@ -25,6 +27,7 @@ func try_attack() -> void:
 	if not can_try_attack or not attacking:
 		return
 	can_try_attack = false
+	attack.emit()
 	get_tree().create_timer(attack_cooldown).timeout.connect(enable_attack_after_cd)
 	Events.enemy_attacking.emit(enemy)
 	
