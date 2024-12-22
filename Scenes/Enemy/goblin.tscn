@@ -80,6 +80,10 @@ shape = SubResource("CircleShape2D_j1gck")
 [node name="Range" parent="AttackArea" index="0"]
 shape = SubResource("CircleShape2D_l05yf")
 
+[node name="Weapon" parent="." index="7"]
+damage = 10.0
+attack_cooldown = 1.5
+
 [node name="Stats" parent="." index="8"]
 script = ExtResource("3_351ab")
 stats = SubResource("Resource_degau")

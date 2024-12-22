@@ -1,0 +1,89 @@
+[gd_scene load_steps=25 format=3 uid="uid://dkitjhr0msaws"]
+
+[ext_resource type="PackedScene" uid="uid://41fehitxf0b1" path="res://Scenes/Player/player_base.tscn" id="1_tniw1"]
+[ext_resource type="Script" path="res://GDScripts/Player/nightborne_sounds.gd" id="2_03uhm"]
+[ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="2_8tkvy"]
+[ext_resource type="AudioStream" uid="uid://by4liacbrhe4f" path="res://Art/Audio/SFX/Footsteps/Player/Nightborne/MON_Footstep_Bipedal_Hooved_Medium_Gravel_Walk_03.ogg" id="3_cps2p"]
+[ext_resource type="SpriteFrames" uid="uid://cmhj0wobiiln" path="res://Resources/Player/Animations/nightborne_class_animations.tres" id="3_jn1re"]
+[ext_resource type="AudioStream" uid="uid://cqqotvfr5vaiv" path="res://Art/Audio/SFX/Death/Player/Nightborne/MON_DeathElemental_Maldraxxus_Death_01.ogg" id="3_n2wer"]
+[ext_resource type="AudioStream" uid="uid://da7tehih5k26t" path="res://Art/Audio/SFX/Attack/Player/Nightborne/Mon_TrollSkeleton_Attack03.ogg" id="3_tx6hs"]
+[ext_resource type="Script" path="res://GDScripts/Design Patterns/FSM/PlayerStates/melee_state.gd" id="4_5ghjy"]
+[ext_resource type="AudioStream" uid="uid://don6tx8fx5ur3" path="res://Art/Audio/SFX/Death/Player/Nightborne/MON_DeathElemental_Maldraxxus_Death_02.ogg" id="4_d738j"]
+[ext_resource type="AudioStream" uid="uid://dcb8nfei8lmx4" path="res://Art/Audio/SFX/Attack/Player/Nightborne/Mon_TrollSkeleton_Attack04.ogg" id="4_qqdv1"]
+[ext_resource type="AudioStream" uid="uid://c6o7112xb5h8d" path="res://Art/Audio/SFX/Footsteps/Player/Nightborne/MON_Footstep_Bipedal_Hooved_Medium_Gravel_Walk_04.ogg" id="4_rs57u"]
+[ext_resource type="AudioStream" uid="uid://euhu8x8uh6lb" path="res://Art/Audio/SFX/Death/Player/Nightborne/MON_DeathElemental_Maldraxxus_Death_03.ogg" id="5_0xwxo"]
+[ext_resource type="AudioStream" uid="uid://dr4lb6bdb6xnv" path="res://Art/Audio/SFX/Attack/Player/Nightborne/Mon_TrollSkeleton_Attack06.ogg" id="5_lj603"]
+[ext_resource type="AudioStream" uid="uid://bxua1aq3rsgvc" path="res://Art/Audio/SFX/Footsteps/Player/Nightborne/MON_Footstep_Bipedal_Hooved_Medium_Gravel_Walk_05.ogg" id="5_u185a"]
+[ext_resource type="AudioStream" uid="uid://d2budu3gsg840" path="res://Art/Audio/SFX/Footsteps/Player/Nightborne/MON_Footstep_Bipedal_Hooved_Medium_Gravel_Walk_08.ogg" id="6_kf70u"]
+[ext_resource type="AudioStream" uid="uid://b6wer7bs67g2j" path="res://Art/Audio/SFX/Wound/Player/Nightborne/VO_70_Wrath_Warrior_Wound_02.ogg" id="9_18x8e"]
+[ext_resource type="AudioStream" uid="uid://bbjmiixwyywkc" path="res://Art/Audio/SFX/Wound/Player/Nightborne/VO_70_Wrath_Warrior_Wound_03.ogg" id="10_yymvy"]
+[ext_resource type="AudioStream" uid="uid://ds1j5gn53ccop" path="res://Art/Audio/SFX/Wound/Player/Nightborne/VO_70_Wrath_Warrior_Wound_06.ogg" id="11_0a3sw"]
+[ext_resource type="AudioStream" uid="uid://bxdwyk1fy024b" path="res://Art/Audio/SFX/Wound/Player/Nightborne/VO_70_Wrath_Warrior_Wound_07.ogg" id="12_hud2d"]
+[ext_resource type="Resource" uid="uid://cgxjbwo6045x8" path="res://Resources/Player/nightborne_stats.tres" id="20_fct7n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i6toq"]
+resource_local_to_scene = true
+shader = ExtResource("2_8tkvy")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2rsf"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0n6gl"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oahm2"]
+radius = 25.02
+
+[node name="Nightborne" instance=ExtResource("1_tniw1")]
+
+[node name="Sounds" parent="." index="0"]
+script = ExtResource("2_03uhm")
+attack_sounds = Array[AudioStream]([ExtResource("3_tx6hs"), ExtResource("4_qqdv1"), ExtResource("5_lj603")])
+death_sound = Array[AudioStream]([ExtResource("3_n2wer"), ExtResource("4_d738j"), ExtResource("5_0xwxo")])
+hit_sound = Array[AudioStream]([ExtResource("9_18x8e"), ExtResource("10_yymvy"), ExtResource("11_0a3sw"), ExtResource("12_hud2d")])
+
+[node name="Footsteps" parent="." index="1"]
+walk_sound = Array[AudioStream]([ExtResource("3_cps2p"), ExtResource("4_rs57u"), ExtResource("5_u185a"), ExtResource("6_kf70u")])
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+material = SubResource("ShaderMaterial_i6toq")
+sprite_frames = ExtResource("3_jn1re")
+animation = &"Attack"
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, 19)
+shape = SubResource("CircleShape2D_m2rsf")
+
+[node name="Melee" type="Node" parent="FSM" index="2"]
+script = ExtResource("4_5ghjy")
+
+[node name="Weapon" parent="WeaponPivot" index="0"]
+weapon_type = 1
+
+[node name="MeleeArea" type="Area2D" parent="." index="6"]
+collision_layer = 2
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeArea" index="0"]
+position = Vector2(22, 10)
+shape = SubResource("CircleShape2D_0n6gl")
+debug_color = Color(0.767901, 0.446578, 3.85046e-07, 0.42)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_oahm2")
+
+[node name="Stats" parent="." index="8"]
+stats = ExtResource("20_fct7n")
+
+[node name="TextureProgressBar" parent="." index="9"]
+offset_left = -13.0
+offset_top = -22.0
+offset_right = 5.0
+offset_bottom = -18.0
+scale = Vector2(1.5, 1.5)
+
+[connection signal="area_entered" from="MeleeArea" to="WeaponPivot/Weapon" method="_on_melee_area_area_entered"]
+[connection signal="area_exited" from="MeleeArea" to="WeaponPivot/Weapon" method="_on_melee_area_area_exited"]

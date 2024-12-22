@@ -15,7 +15,7 @@ var aggroed := false
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		set_aggro_true()
-		current_aggro_target = body.get_parent().find_child("Stats") as Player
+		current_aggro_target = body.find_child("Stats") as Player
 		Events.start_chasing_player.emit(self, body)
 
 func _ready() -> void:

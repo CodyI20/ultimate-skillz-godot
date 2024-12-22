@@ -9,6 +9,9 @@ func flash_character(damage: int) -> void:
 		
 	for wait_time in wait_times:
 		material.set_shader_parameter('flash', true)
+		material.set_shader_parameter('flash_color', Color8(255,255,255))
+		await get_tree().create_timer(wait_time/2).timeout
+		material.set_shader_parameter('flash_color', Color8(156,84,244))
 		await get_tree().create_timer(wait_time).timeout
 		material.set_shader_parameter('flash', false)
 		await get_tree().create_timer(wait_time/2).timeout

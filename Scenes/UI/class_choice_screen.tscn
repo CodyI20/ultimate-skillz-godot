@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://y1px0q4tn7bk"]
+
+[ext_resource type="PackedScene" uid="uid://1yq5qrwlpnbe" path="res://Scenes/UI/class_button.tscn" id="1_mfai7"]
+[ext_resource type="Texture2D" uid="uid://cf7gdh630hje0" path="res://Art/2D/Archer-ICON.png" id="2_df42f"]
+[ext_resource type="Texture2D" uid="uid://gwcj88086dba" path="res://Art/2D/Nightborne-ICON.png" id="3_l3lrq"]
+
+[node name="ClassChoiceScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArcherClassButton" parent="." instance=ExtResource("1_mfai7")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -541.0
+offset_top = -372.0
+offset_right = -75.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+icon_of_the_class = ExtResource("2_df42f")
+
+[node name="NightborneClassButton" parent="." instance=ExtResource("1_mfai7")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 103.0
+offset_top = -370.0
+offset_right = 569.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+name_of_the_class = 1
+icon_of_the_class = ExtResource("3_l3lrq")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 55.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[font_size=60][center][pulse freq=0.86 color=#9f51f740 ease=-1.0][color=#9f51f9]CHOOSE YOUR CLASS"
+fit_content = true

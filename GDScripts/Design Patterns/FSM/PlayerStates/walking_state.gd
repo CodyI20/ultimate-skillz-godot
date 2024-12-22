@@ -22,14 +22,8 @@ func Physics_Update(_delta: float) -> void:
 	
 func StateSwitchLogic() -> void:
 	super()
-	if Input.is_action_pressed("Left") and Input.is_action_pressed("Right") or Input.is_action_pressed("Up") and Input.is_action_pressed("Down"):
-		state_transition.emit(self, "Idle")
-	#if Input.is_action_pressed("Run"):
-		#state_transition.emit(self, "Running")
-	if !Input.is_action_pressed("Left") and !Input.is_action_pressed("Right") and !Input.is_action_pressed("Up") and !Input.is_action_pressed("Down"):
-		state_transition.emit(self, "Idle")
-	if Input.is_action_just_pressed("Attack"):
-		state_transition.emit(self, "Shooting")
+	check_for_lack_of_player_movement()
+	check_for_player_attack()
 
 func _handle_movement() -> void:
 	var horizontal_direction := Input.get_axis("Left", "Right")

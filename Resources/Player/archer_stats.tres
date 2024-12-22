@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://bqb0fygtsjlpj"]
 
-[ext_resource type="Script" path="res://GDScripts/Stats/Player/player_stats.gd" id="1_lnjpi"]
+[ext_resource type="Script" path="res://GDScripts/Stats/Player/player_stats.gd" id="1_ideie"]
 
 [resource]
 resource_local_to_scene = true
-script = ExtResource("1_lnjpi")
+script = ExtResource("1_ideie")
 self_damage = 50
-max_health = 100
-health = 100
+max_health = 150
+health = 150

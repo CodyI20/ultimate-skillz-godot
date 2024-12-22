@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://1yq5qrwlpnbe"]
+
+[ext_resource type="Script" path="res://Scenes/UI/class_button.gd" id="1_desko"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q2o1j"]
+font_size = 25
+outline_size = 5
+outline_color = Color(0.44759, 0.149639, 0.313204, 1)
+
+[node name="ClassButton" type="Button"]
+offset_right = 271.0
+offset_bottom = 490.0
+script = ExtResource("1_desko")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="ClassName" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GODOT"
+label_settings = SubResource("LabelSettings_q2o1j")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ClassIcon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+expand_mode = 4
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

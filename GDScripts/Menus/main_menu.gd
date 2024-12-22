@@ -2,8 +2,7 @@ extends Control
 
 
 func _on_play_button_pressed() -> void:
-	Events.game_started.emit()
-	Utility.go_to_game_scene()
+	Utility.go_to_class_select_screen()
 
 func _on_options_button_pressed() -> void:
 	Utility.toggle_options_menu(true)

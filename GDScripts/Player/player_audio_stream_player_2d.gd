@@ -9,7 +9,6 @@ class_name PlayerAudioStream2D
 @export var death_sound : Array[AudioStream]
 @export var hit_sound : Array[AudioStream]
 
-var is_walking := false
 func _ready() -> void:
 	stats.dead.connect(play_death_sound)
 	stats.hit.connect(play_hit_sound)

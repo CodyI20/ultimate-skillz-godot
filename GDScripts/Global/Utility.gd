@@ -1,5 +1,8 @@
 extends Node
 
+enum PLAYER_CLASS { ARCHER, NIGHTBORNE, NECROMANCER }
+var selected_player_class : PLAYER_CLASS
+
 # SETTINGS - INPUT ACTIONS TO REMAP
 var input_actions = {
 	"Left" : "Move Left",
@@ -30,13 +33,22 @@ func reload_scene() -> void:
 	get_tree().reload_current_scene()
 
 func retry_level() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/MainScene/game.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/class_choice_screen.tscn")
 
 func go_to_high_score_scene() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Menus/highscore.tscn")
 
-func go_to_game_scene() -> void:
+func go_to_game_scene(selected_class : PLAYER_CLASS = PLAYER_CLASS.ARCHER) -> void:
+	Events.game_started.emit()
+	selected_player_class = selected_class
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/MainScene/game.tscn")
+
+func go_to_class_select_screen() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/class_choice_screen.tscn")
 
 func quit_game() -> void:
 	get_tree().quit()
+
+# Helper function to get the string representation of the enum
+func enum_to_string(enumerator, value: int) -> String:
+	return enumerator.keys()[enumerator.values().find(value)]

@@ -6,7 +6,11 @@ signal player_died()
 signal player_took_damage(damage: int)
 signal player_shooting(projectile : PackedScene, source: Node2D)
 signal player_range_attack()
+signal player_melee()
+signal player_melee_anim_finished()
 signal arrow_released()
+
+signal class_selected(name_of_the_class: String)
 
 signal projectile_hit_something()
 
