@@ -31,7 +31,7 @@ shader_parameter/flash = false
 radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0n6gl"]
-radius = 22.0
+radius = 27.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oahm2"]
 radius = 25.02
