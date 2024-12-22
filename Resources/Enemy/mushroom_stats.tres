@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://6gy68ixki2pq"]
+
+[ext_resource type="Script" path="res://GDScripts/Stats/Enemy/enemy_stats.gd" id="1_tetun"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_tetun")
+max_health = 125
+health = 125

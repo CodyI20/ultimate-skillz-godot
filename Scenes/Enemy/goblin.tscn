@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://70mw6vjqtfm8"]
 
 [ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_71ncb"]
-[ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/goblin_animations.tres" id="2_eqvvl"]
+[ext_resource type="SpriteFrames" uid="uid://cnskn3rnne1a" path="res://Resources/Enemy/Animations/goblin_animations.tres" id="2_eqvvl"]
 [ext_resource type="AudioStream" uid="uid://c8bhl23dqde72" path="res://Art/Audio/SFX/Death/Enemy/Goblin/GoblinMale_Death02.ogg" id="2_koyod"]
 [ext_resource type="Script" path="res://GDScripts/Stats/Enemy/enemy_stats.gd" id="2_nigu2"]
 [ext_resource type="AudioStream" uid="uid://xkv4tj2lntbq" path="res://Art/Audio/SFX/Wound/Enemy/Goblin/GoblinMale_Wound01.ogg" id="3_63gob"]
@@ -39,7 +39,7 @@ radius = 19.3333
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l05yf"]
 resource_local_to_scene = true
-radius = 24.1868
+radius = 30.0074
 
 [sub_resource type="Resource" id="Resource_degau"]
 resource_local_to_scene = true
@@ -62,7 +62,9 @@ walk_sound = Array[AudioStream]([ExtResource("4_okufq"), ExtResource("5_pj4fr"),
 [node name="AnimatedSprite2D" parent="." index="2"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_eqvvl")
-animation = &"Run"
+animation = &"Attack"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="3"]
 position = Vector2(0, 11.3333)

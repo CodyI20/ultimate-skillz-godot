@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://btq58eeepvh6l"]
+[gd_scene load_steps=10 format=4 uid="uid://btq58eeepvh6l"]
 
 [ext_resource type="Texture2D" uid="uid://b4gwlpungp8pu" path="res://Art/2D/Atlantis/tf_atlantis_tiles.png" id="1_d6biu"]
 [ext_resource type="Script" path="res://GDScripts/Utility/Camera/camera_2d.gd" id="1_rw78f"]
 [ext_resource type="PackedScene" uid="uid://28j06wxvyric" path="res://Scenes/Player/archer_class.tscn" id="2_ecqfq"]
 [ext_resource type="PackedScene" uid="uid://70mw6vjqtfm8" path="res://Scenes/Enemy/goblin.tscn" id="3_v7kt3"]
 [ext_resource type="PackedScene" uid="uid://8af6ae7oko87" path="res://Scenes/UI/UI.tscn" id="5_aj60u"]
+[ext_resource type="PackedScene" uid="uid://bvomyumvlhmtl" path="res://Scenes/Enemy/mushroom.tscn" id="5_d4y88"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xh7mc"]
 vertices = PackedVector2Array(1202.99, 455, 1181.29, 455, 921, 454.922, 1015, 443.922, 873, 278.922, 1447, 213.578, 1513, 212.063, 864.156, 293.656, 1411.2, 583, 1389.36, 583, 1241, 550.922, 1241, 492.578, 1687, 405.742, 25, 9, 1412, 9, 1390.44, 13.6094, 1149.89, 461.891, 30.4375, 285.609, 25, 308.617, 1472.78, 14.6875, 1450.89, 9, 1959, 9, 1257, 883.18, 1959, 1127, 25, 1127, 1191, 885.742, 1415, 709.578, 1481, 708.063, 1257, 791, 1358.44, 589.609, 1753, 403.18, 1753, 119, 1481, 599, 775, 280.297, 791, 301.727, 791, 309.273, 537, 294.922, 537, 236.578, 1143, 552.297, 1159, 573.727, 1159, 581.273, 649, 566.922, 649, 508.578, 557.891, 477.891, 551, 509.289, 441, 486.922, 441, 428.578, 1475.06, 23, 1513, 23, 1687, 119, 1072.16, 421.656, 1081, 406.922, 1232.53, 462.156, 1081, 348.578, 1383, 45.0938, 259.203, 23, 61.3594, 279, 1143, 493.289, 912.156, 469.656, 25, 402.406, 39, 404.273, 39, 406.398, 695, 763.922, 727, 791, 727, 885.742, 169, 836.063, 169, 727, 679, 757.273, 775, 221.289, 528.531, 206.156, 1383, 210.148, 834.992, 183, 329, 148.063, 329, 39, 241.063, 149.219, 247, 148.953, 247, 149.578, 233.133, 150.68, 1425.06, 213.219, 1431, 212.953, 1431, 213.578, 1417.13, 214.68, 1393.06, 709.219, 1399, 708.953, 1399, 709.578, 1385.13, 710.68, 81.0625, 837.219, 87, 836.953, 87, 837.578, 73.1328, 838.68, 65.0625, 405.219, 71, 404.953, 71, 405.578, 57.1328, 406.68, 743, 885.109, 743, 885.742, 759, 885.109, 759, 885.742, 775, 885.109, 775, 885.742, 791, 885.109, 791, 885.742, 807, 885.109, 807, 885.742, 823, 885.109, 823, 885.742, 839, 885.109, 839, 885.742, 855, 885.109, 855, 885.742, 871, 885.109, 871, 885.742, 887, 885.109, 887, 885.742, 903, 885.109, 903, 885.742, 919, 885.109, 919, 885.742, 935, 885.109, 935, 885.742, 951, 885.109, 951, 885.742, 967, 885.109, 967, 885.742, 983, 885.109, 983, 885.742, 999, 885.109, 999, 885.742, 1015, 885.109, 1015, 885.742, 1031, 885.109, 1031, 885.742, 1047, 885.109, 1047, 885.742, 1063, 885.109, 1063, 885.742, 1079, 885.109, 1079, 885.742, 1095, 885.109, 1095, 885.742, 1111, 885.109, 1111, 885.742, 1127, 885.109, 1127, 885.742, 1143, 885.109, 1143, 885.742, 1159, 885.109, 1159, 885.742, 1175, 885.109, 1175, 885.742, 1191, 885.109, 103, 837.578, 1072.53, 318.156, 855, 491.922, 263, 149.211, 263, 149.578, 1447, 213.211, 1415, 709.211, 761, 726.922, 1367, 710.398, 752.156, 741.656, 737.922, 753.156, 103, 837.211, 66.9531, 837.859, 55, 838.398, 87, 405.211, 87, 405.578, 455, 325.273, 471, 325.023, 471, 331.922, 432.531, 398.156, 402.992, 391, 807, 309.023, 807, 315.922, 513.922, 321.156, 999, 437.273, 1015, 437.023, 839, 485.273, 855, 485.023, 359, 517.273, 375, 517.023, 375, 523.922, 77.3594, 711, 567, 597.273, 583, 597.023, 583, 603.922, 1175, 581.023, 1175, 587.922, 625.922, 593.156, 695, 757.023, 679, 749.727, 663, 728.297, 663, 669.289, 50.9531, 405.859, 39, 749.094, 1351, 621.094, 1232.16, 565.656, 199, 146.148, 215, 148.273, 215, 150.398, 1399, 212.273, 1399, 214.398, 873, 220.578, 1351, 706.148, 1367, 708.273, 761, 668.578, 39, 834.148, 55, 836.273, 83.2031, 279, 551, 568.297, 432.156, 501.656, 781.891, 189.891, 498.992, 199, 291.063, 39, 288.781, 30.6875, 1443.06, 599, 1440.78, 590.688, 131.063, 727, 128.781, 718.688, 669.891, 637.891, 153, 295, 115.063, 295, 112.781, 286.688, 417.922, 513.156, 567, 589.727, 1217.92, 577.156, 199, 61.0938, 528.156, 309.656, 640.156, 581.656, 589.289, 471, 1057.92, 433.156, 897.922, 481.156, 439, 296.297, 455, 317.727, 381.289, 391, 849.922, 305.156, 983, 408.297, 999, 429.727, 912.531, 366.156, 823, 456.297, 839, 477.727, 640.531, 478.156, 610.992, 471, 153, 404.063, 343, 488.297, 359, 509.727, 1042.99, 311, 1021.29, 311, 989.891, 317.891, 983, 349.289, 722.992, 631, 921, 396.578, 882.992, 359, 861.289, 359, 829.891, 365.891, 823, 397.289, 99.2031, 711, 349.891, 397.891, 439, 237.289, 445.891, 205.891, 1410.95, 213.859, 864.531, 190.156, 813.289, 183, 477.289, 199, 226.953, 149.859, 343, 429.289, 237.359, 23, 206.438, 29.6094, 46.4375, 717.609, 1378.95, 709.859, 752.531, 638.156, 701.289, 631)
@@ -870,38 +871,51 @@ position = Vector2(714, 446)
 
 [node name="Enemies" type="Node2D" parent="." groups=["enemy"]]
 
-[node name="Goblin" parent="Enemies" instance=ExtResource("3_v7kt3")]
+[node name="Goblins" type="Node2D" parent="Enemies"]
+
+[node name="Goblin" parent="Enemies/Goblins" instance=ExtResource("3_v7kt3")]
 position = Vector2(367, 562)
 
-[node name="Goblin2" parent="Enemies" instance=ExtResource("3_v7kt3")]
+[node name="Goblin2" parent="Enemies/Goblins" instance=ExtResource("3_v7kt3")]
 position = Vector2(332, 288)
 
-[node name="Goblin3" parent="Enemies" instance=ExtResource("3_v7kt3")]
-position = Vector2(705, 924)
-
-[node name="Goblin4" parent="Enemies" instance=ExtResource("3_v7kt3")]
+[node name="Goblin4" parent="Enemies/Goblins" instance=ExtResource("3_v7kt3")]
 position = Vector2(1393, 917)
 
-[node name="Goblin5" parent="Enemies" instance=ExtResource("3_v7kt3")]
+[node name="Goblin5" parent="Enemies/Goblins" instance=ExtResource("3_v7kt3")]
 position = Vector2(1538, 631)
 
-[node name="Goblin6" parent="Enemies" instance=ExtResource("3_v7kt3")]
-position = Vector2(1546, 140)
-
-[node name="Goblin7" parent="Enemies" instance=ExtResource("3_v7kt3")]
+[node name="Goblin7" parent="Enemies/Goblins" instance=ExtResource("3_v7kt3")]
 position = Vector2(797, 141)
 
-[node name="Goblin8" parent="Enemies" instance=ExtResource("3_v7kt3")]
-position = Vector2(994, 664)
-
-[node name="Goblin9" parent="Enemies" instance=ExtResource("3_v7kt3")]
+[node name="Goblin9" parent="Enemies/Goblins" instance=ExtResource("3_v7kt3")]
 position = Vector2(1790, 342)
 
-[node name="Goblin10" parent="Enemies" instance=ExtResource("3_v7kt3")]
-position = Vector2(1782, 922)
-
-[node name="Goblin11" parent="Enemies" instance=ExtResource("3_v7kt3")]
+[node name="Goblin11" parent="Enemies/Goblins" instance=ExtResource("3_v7kt3")]
 position = Vector2(256, 894)
+
+[node name="Mushrooms" type="Node2D" parent="Enemies"]
+
+[node name="Mushroom" parent="Enemies/Mushrooms" instance=ExtResource("5_d4y88")]
+position = Vector2(1407, 341)
+
+[node name="Mushroom2" parent="Enemies/Mushrooms" instance=ExtResource("5_d4y88")]
+position = Vector2(962, 638)
+
+[node name="Mushroom3" parent="Enemies/Mushrooms" instance=ExtResource("5_d4y88")]
+position = Vector2(604, 890)
+
+[node name="Mushroom4" parent="Enemies/Mushrooms" instance=ExtResource("5_d4y88")]
+position = Vector2(1031, 1028)
+
+[node name="Mushroom5" parent="Enemies/Mushrooms" instance=ExtResource("5_d4y88")]
+position = Vector2(1133, 156)
+
+[node name="Mushroom6" parent="Enemies/Mushrooms" instance=ExtResource("5_d4y88")]
+position = Vector2(1753, 974)
+
+[node name="Mushroom7" parent="Enemies/Mushrooms" instance=ExtResource("5_d4y88")]
+position = Vector2(1590, 141)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

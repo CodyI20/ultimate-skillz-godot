@@ -1,0 +1,77 @@
+[gd_scene load_steps=25 format=3 uid="uid://bvomyumvlhmtl"]
+
+[ext_resource type="PackedScene" uid="uid://dtfveytixqslk" path="res://Scenes/Enemy/enemy.tscn" id="1_u87jk"]
+[ext_resource type="AudioStream" uid="uid://bk1u5las8ux6u" path="res://Art/Audio/SFX/Death/Enemy/Mushroom/MON_Mawrat_Death_02.ogg" id="2_4nfpf"]
+[ext_resource type="SpriteFrames" uid="uid://ckj074b65f1fh" path="res://Resources/Enemy/Animations/mushroom_animations.tres" id="2_onsmp"]
+[ext_resource type="AudioStream" uid="uid://cvl6o4fisxfgy" path="res://Art/Audio/SFX/Footsteps/Enemy/Mushroom/MON_Footstep_Bipedal_Foot_Small_Sand_01.ogg" id="2_wapns"]
+[ext_resource type="AudioStream" uid="uid://c7atkaxr7xc38" path="res://Art/Audio/SFX/Footsteps/Enemy/Mushroom/MON_Footstep_Bipedal_Foot_Small_Sand_04.ogg" id="3_tqray"]
+[ext_resource type="AudioStream" uid="uid://bxnv31j7p7ibt" path="res://Art/Audio/SFX/Death/Enemy/Mushroom/MON_Mawrat_Death_03.ogg" id="3_wmxg8"]
+[ext_resource type="AudioStream" uid="uid://dp63606wvoyav" path="res://Art/Audio/SFX/Death/Enemy/Mushroom/MON_Mawrat_Death_04.ogg" id="4_botbd"]
+[ext_resource type="AudioStream" uid="uid://boqpbnpdu8tn4" path="res://Art/Audio/SFX/Footsteps/Enemy/Mushroom/MON_Footstep_Bipedal_Foot_Small_Sand_05.ogg" id="4_vhgj4"]
+[ext_resource type="AudioStream" uid="uid://bhe075qgvxtkq" path="res://Art/Audio/SFX/Wound/Enemy/Mushroom/MON_Mawrat_Wound_01.ogg" id="5_aqb5s"]
+[ext_resource type="AudioStream" uid="uid://cc4mkrqi6orvq" path="res://Art/Audio/SFX/Footsteps/Enemy/Mushroom/MON_Footstep_Bipedal_Foot_Small_Sand_06.ogg" id="5_gbfgs"]
+[ext_resource type="AudioStream" uid="uid://dqsjn7fisqr33" path="res://Art/Audio/SFX/Wound/Enemy/Mushroom/MON_Mawrat_Wound_02.ogg" id="6_1kuw3"]
+[ext_resource type="AudioStream" uid="uid://b8xumn350xe2h" path="res://Art/Audio/SFX/Wound/Enemy/Mushroom/MON_Mawrat_Wound_03.ogg" id="7_v1s0y"]
+[ext_resource type="AudioStream" uid="uid://cdb8ulq12ky7p" path="res://Art/Audio/SFX/Wound/Enemy/Mushroom/MON_Mawrat_Wound_05.ogg" id="8_8of2l"]
+[ext_resource type="AudioStream" uid="uid://x8yqcnjsy2oj" path="res://Art/Audio/SFX/Attack/Enemy/Mushroom/MON_Mawrat_AttackCrit_01.ogg" id="9_amutt"]
+[ext_resource type="AudioStream" uid="uid://domxxs3i1u61g" path="res://Art/Audio/SFX/Attack/Enemy/Mushroom/MON_Mawrat_AttackCrit_02.ogg" id="10_tj6ws"]
+[ext_resource type="AudioStream" uid="uid://cocsrae4g3q3l" path="res://Art/Audio/SFX/Attack/Enemy/Mushroom/MON_Mawrat_AttackCrit_03.ogg" id="11_cfvbj"]
+[ext_resource type="AudioStream" uid="uid://djbuvrmkx7hl2" path="res://Art/Audio/SFX/Aggro/Mushroom/MON_Mawrat_PreAggro_01.ogg" id="12_o463c"]
+[ext_resource type="AudioStream" uid="uid://cb8mwn1ch7yk3" path="res://Art/Audio/SFX/Aggro/Mushroom/MON_Mawrat_PreAggro_02.ogg" id="13_2h0wa"]
+[ext_resource type="AudioStream" uid="uid://b4un2fq7rkv0u" path="res://Art/Audio/SFX/Aggro/Mushroom/MON_Mawrat_PreAggro_03.ogg" id="14_6xfic"]
+[ext_resource type="Resource" uid="uid://6gy68ixki2pq" path="res://Resources/Enemy/mushroom_stats.tres" id="20_q7skr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlfmm"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18q3a"]
+resource_local_to_scene = true
+radius = 156.003
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uasmr"]
+resource_local_to_scene = true
+radius = 19.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_or7yd"]
+resource_local_to_scene = true
+radius = 40.0
+
+[node name="Mushroom" instance=ExtResource("1_u87jk")]
+
+[node name="Sounds" parent="." index="0"]
+death_sound = Array[AudioStream]([ExtResource("2_4nfpf"), ExtResource("3_wmxg8"), ExtResource("4_botbd")])
+hit_sound = Array[AudioStream]([ExtResource("5_aqb5s"), ExtResource("6_1kuw3"), ExtResource("7_v1s0y"), ExtResource("8_8of2l")])
+attack_sound = Array[AudioStream]([ExtResource("9_amutt"), ExtResource("10_tj6ws"), ExtResource("11_cfvbj")])
+aggro_sound = Array[AudioStream]([ExtResource("12_o463c"), ExtResource("13_2h0wa"), ExtResource("14_6xfic")])
+
+[node name="WalkSounds" parent="." index="1"]
+walk_sound = Array[AudioStream]([ExtResource("2_wapns"), ExtResource("3_tqray"), ExtResource("4_vhgj4"), ExtResource("5_gbfgs")])
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = ExtResource("2_onsmp")
+animation = &"Run"
+frame_progress = 0.243988
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, 21)
+shape = SubResource("CircleShape2D_dlfmm")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_18q3a")
+
+[node name="CollisionShape2D" parent="InnerArea" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_uasmr")
+
+[node name="Range" parent="AttackArea" index="0"]
+shape = SubResource("CircleShape2D_or7yd")
+
+[node name="Stats" parent="." index="8"]
+stats = ExtResource("20_q7skr")
+
+[node name="TextureProgressBar" parent="." index="11"]
+offset_left = -18.0
+offset_top = -37.0
+offset_right = 0.0
+offset_bottom = -33.0
+scale = Vector2(2, 2)
