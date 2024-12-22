@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsst8mtgx7ssj"]
+[gd_scene load_steps=4 format=3 uid="uid://bsst8mtgx7ssj"]
 
+[ext_resource type="Script" path="res://GDScripts/Managers/game_manager.gd" id="1_01dbj"]
 [ext_resource type="PackedScene" uid="uid://btq58eeepvh6l" path="res://Scenes/Levels/level.tscn" id="1_75011"]
+[ext_resource type="PackedScene" uid="uid://dwoybiejqaab3" path="res://Scenes/Menus/pause_menu.tscn" id="2_bj4di"]
 
 [node name="Game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_01dbj")
 
 [node name="Level" parent="." instance=ExtResource("1_75011")]
+process_mode = 1
+
+[node name="WhenPausedUI" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="PauseMenu" parent="WhenPausedUI" instance=ExtResource("2_bj4di")]

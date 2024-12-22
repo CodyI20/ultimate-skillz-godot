@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://btq58eeepvh6l"]
 
 [ext_resource type="Texture2D" uid="uid://b4gwlpungp8pu" path="res://Art/2D/Atlantis/tf_atlantis_tiles.png" id="1_d6biu"]
-[ext_resource type="Script" path="res://GDScripts/Utility/camera_2d.gd" id="1_rw78f"]
+[ext_resource type="Script" path="res://GDScripts/Utility/Camera/camera_2d.gd" id="1_rw78f"]
 [ext_resource type="PackedScene" uid="uid://28j06wxvyric" path="res://Scenes/Player/archer_class.tscn" id="2_ecqfq"]
 [ext_resource type="PackedScene" uid="uid://70mw6vjqtfm8" path="res://Scenes/Enemy/goblin.tscn" id="3_v7kt3"]
 [ext_resource type="PackedScene" uid="uid://8af6ae7oko87" path="res://Scenes/UI/beginning_screen.tscn" id="5_aj60u"]

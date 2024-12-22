@@ -1,0 +1,219 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4mfu0ifno2bj"]
+
+[ext_resource type="PackedScene" uid="uid://cifbpc7j2wroe" path="res://Scenes/Menus/input_button.tscn" id="1_75bsl"]
+[ext_resource type="Script" path="res://GDScripts/Menus/input_settings_container.gd" id="1_hadoi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_53q8t"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0d6d"]
+font_size = 30
+
+[node name="SettingsTabContainer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 2
+
+[node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 175
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="MasterVolume" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Master Volume
+"
+label_settings = SubResource("LabelSettings_53q8t")
+vertical_alignment = 2
+
+[node name="MasterSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+
+[node name="SFXVolume" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "SFX Volume
+"
+label_settings = SubResource("LabelSettings_53q8t")
+vertical_alignment = 2
+
+[node name="SFXSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+
+[node name="MusicVolume" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Music Volume
+"
+label_settings = SubResource("LabelSettings_53q8t")
+vertical_alignment = 2
+
+[node name="MusicSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+
+[node name="DialogueVolume" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Dialogue Volume
+"
+label_settings = SubResource("LabelSettings_53q8t")
+vertical_alignment = 2
+
+[node name="DialogueSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+
+[node name="Graphics" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 175
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 300
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ResolutionText" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resolution"
+label_settings = SubResource("LabelSettings_e0d6d")
+vertical_alignment = 2
+
+[node name="Resolutions" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+selected = 2
+item_count = 4
+popup/item_0/text = "2560x1440"
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "1024x768"
+popup/item_3/id = 3
+
+[node name="FullscreenText" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Window mode"
+label_settings = SubResource("LabelSettings_e0d6d")
+vertical_alignment = 2
+
+[node name="WindowModes" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 25
+selected = 1
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless Windowed"
+popup/item_2/id = 2
+
+[node name="V-SYNCText" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "V-SYNC"
+label_settings = SubResource("LabelSettings_e0d6d")
+vertical_alignment = 2
+
+[node name="V-SYNC" type="CheckButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+button_pressed = true
+
+[node name="Controls" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="InputSettingsContainer" type="MarginContainer" parent="TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+script = ExtResource("1_hadoi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/InputSettingsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/InputSettingsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="TabContainer/Controls/InputSettingsContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" parent="TabContainer/Controls/InputSettingsContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_75bsl")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="TabContainer/Controls/InputSettingsContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Reset to default"
+
+[connection signal="pressed" from="TabContainer/Controls/InputSettingsContainer/VBoxContainer/ResetButton" to="TabContainer/Controls/InputSettingsContainer" method="_on_reset_button_pressed"]
