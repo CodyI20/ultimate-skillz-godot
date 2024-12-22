@@ -21,3 +21,4 @@ func _die() -> void:
 	stats.health = 0
 	print_debug("You have died...")
 	Events.player_died.emit()
+	Events.game_over.emit()

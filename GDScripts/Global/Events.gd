@@ -4,6 +4,7 @@ signal projectile_hit(area: Area2D, damage: int, source: Node2D)
 signal shooting()
 signal player_died()
 signal player_took_damage(damage: int)
+signal player_shooting(projectile : PackedScene, source: Node2D)
 
 
 signal enemy_died(enemy: Enemy)

@@ -10,6 +10,7 @@ func _ready() -> void:
 	
 	Events.enemy_died.connect(increment_current_score)
 	Events.game_over.connect(reset_score)
+	Events.finished_demo.connect(reset_score)
 
 func increment_current_score(enemy: Enemy) -> void:
 	current_score += 1
